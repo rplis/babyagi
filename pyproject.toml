@@ -15,6 +15,7 @@ python-dotenv = "1.0.0"
 tiktoken = "0.3.3"
 llama-cpp-python = ">=0.1.42"
 pylint = "^3.0.2"
+colorama = "^0.4.6"
 
 
 [build-system]
