@@ -37,20 +37,9 @@ LLM_MODEL = os.getenv("LLM_MODEL", os.getenv("OPENAI_API_MODEL")).lower()
 # API Keys
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 
-if not (LLM_MODEL.startswith("llama") or LLM_MODEL.startswith("human")):
-    assert OPENAI_API_KEY, (
-        f"{Fore.RED}{Style.BRIGHT}"
-        + "OPENAI_API_KEY environment variable is missing from .env"
-        + f"{Style.RESET_ALL}"
-    )
 # Table config
 RESULTS_STORE_NAME = os.getenv(
     "RESULTS_STORE_NAME", os.getenv("TABLE_NAME", "")
-)
-assert RESULTS_STORE_NAME, (
-    f"{Fore.RED}{Style.BRIGHT}"
-    + "RESULTS_STORE_NAME environment variable is missing from .env"
-    + f"{Style.RESET_ALL}"
 )
 
 # Run configuration
@@ -117,8 +106,6 @@ if DOTENV_EXTENSIONS:
 # defaults from dotenv extensions, but also provide command line
 # arguments to override them
 
-# Extensions support end
-
 print(
     f"{Fore.BLUE}{Style.BRIGHT}"
     + "\n*****CONFIGURATION*****\n"
@@ -131,21 +118,6 @@ print(
 print(f"LLM   : {LLM_MODEL}")
 
 # Check if we know what we are doing
-assert OBJECTIVE, (
-    f"{Fore.BLUE}{Style.BRIGHT}"
-    + "OBJECTIVE environment variable is missing from .env"
-    + f"{Style.RESET_ALL}"
-)
-assert INITIAL_TASK, (
-    f"{Fore.CYAN}{Style.BRIGHT}"
-    + "INITIAL_TASK environment variable is missing from .env"
-    + f"{Style.RESET_ALL}"
-)
-
-LLAMA_MODEL_PATH = os.getenv(
-    "LLAMA_MODEL_PATH", "models/llama-13B/ggml-model.bin"
-)
-
 if LLM_MODEL.startswith("gpt-4"):
     print(
         f"{Fore.RED}{Style.BRIGHT}"
@@ -161,7 +133,7 @@ if LLM_MODEL.startswith("human"):
     )
 
 print(
-    f"{Fore.BLUE}{Style.BRIGHT}"
+    f"{Fore.CYAN}{Style.BRIGHT}"
     + "\n*****OBJECTIVE*****\n"
     + f"{Style.RESET_ALL}"
 )
@@ -170,50 +142,15 @@ print(f"{OBJECTIVE}")
 if not JOIN_EXISTING_OBJECTIVE:
     print(
         f"{Fore.MAGENTA}{Style.BRIGHT}"
-        + "\nInitial task:"
+        + "\n*****INITIAL TASK*****\n"
         + f"{Style.RESET_ALL}"
         + f" {INITIAL_TASK}"
     )
-else:
-    print(
-        f"{Fore.MAGENTA}{Style.BRIGHT}"
-        + "\nJoining to help the objective"
-        + f"{Style.RESET_ALL}"
-    )
 
 
-def use_chroma():
-    """Returns the results storage to use."""
-    print(
-        "\nUsing results storage: "
-        + f"{Fore.GREEN}{Style.BRIGHT}"
-        + "Chroma (Default)"
-        + f"{Style.RESET_ALL}"
-    )
-    return DefaultResultsStorage()
+results_storage = DefaultResultsStorage()  # chromedb
 
-
-results_storage = use_chroma()
-
-# Initialize tasks storage
 tasks_storage = SingleTaskListStorage()
-if COOPERATIVE_MODE in ["l", "local"]:
-    if can_import("extensions.ray_tasks"):
-        import sys
-        from pathlib import Path
-
-        sys.path.append(str(Path(__file__).resolve().parent))
-        from extensions.ray_tasks import CooperativeTaskListStorage
-
-        tasks_storage = CooperativeTaskListStorage(OBJECTIVE)
-        print(
-            "\nReplacing tasks storage: "
-            + f"{Fore.GREEN}{Style.BRIGHT}"
-            + "Ray"
-            + f"{Style.RESET_ALL}"
-        )
-elif COOPERATIVE_MODE in ["d", "distributed"]:
-    pass
 
 
 def limit_tokens_from_string(string: str, model: str, limit: int) -> str:
@@ -341,9 +278,13 @@ If your list is empty, write "There are no tasks to add at this time.
 Unless your list is empty, do not include any headers before your numbered
 list or follow your numbered list with any other output."""
 
-    print(f"\n*****TASK CREATION AGENT PROMPT****\n{prompt}\n")
+    # print(
+    #     f"\n{Fore.LIGHTGREEN_EX}{Style.BRIGHT}*****TASK CREATION AGENT PROMPT****{Style.RESET_ALL}\n{prompt}\n"
+    # )
     response = openai_call(prompt, max_tokens=2000)
-    print(f"\n****TASK CREATION AGENT RESPONSE****\n{response}\n")
+    # print(
+    #     f"\n{Fore.LIGHTGREEN_EX}{Style.BRIGHT}****TASK CREATION AGENT RESPONSE****{Style.RESET_ALL}\n{response}\n"
+    # )
     new_tasks = response.split("\n")
     new_tasks_list = []
     for task_string in new_tasks:
@@ -380,9 +321,11 @@ The entries must be consecutively numbered, starting with
 Do not include any headers before your ranked list or
 follow your list with any other output."""
 
-    print(f"\n****TASK PRIORITIZATION AGENT PROMPT****\n{prompt}\n")
+    # print(f"\n****TASK PRIORITIZATION AGENT PROMPT****\n{prompt}\n")
     response = openai_call(prompt, max_tokens=2000)
-    print(f"\n****TASK PRIORITIZATION AGENT RESPONSE****\n{response}\n")
+    print(
+        f"\n{Fore.LIGHTGREEN_EX}{Style.BRIGHT}****TASK PRIORITIZATION AGENT RESPONSE****{Style.RESET_ALL}\n{response}\n"
+    )
     if not response:
         print(
             """Received empty response from priotritization agent.
@@ -404,7 +347,6 @@ follow your list with any other output."""
     return new_tasks_list
 
 
-# Execute a task based on the objective and five previous tasks
 def execution_agent(objective: str, task: str) -> str:
     """
     Executes a task based on the given objective and previous context.
@@ -431,7 +373,6 @@ def execution_agent(objective: str, task: str) -> str:
     return openai_call(prompt, max_tokens=2000)
 
 
-# Get the top n completed tasks for the objective
 def context_agent(query: str, top_results_num: int):
     """
     Retrieves context for a given query from an index of tasks.
@@ -448,8 +389,6 @@ def context_agent(query: str, top_results_num: int):
     results = results_storage.query(
         query=query, top_results_num=top_results_num
     )
-    # print("****RESULTS****")
-    # print(results)
     return results
 
 
@@ -516,10 +455,12 @@ def main():
                 tasks_storage.get_task_names(),
             )
 
-            print("Adding new tasks to task_storage")
+            # print(
+            #     f"{Fore.BLUE}Adding new tasks to task_storage{Style.RESET_ALL}"
+            # )
             for new_task in new_tasks:
                 new_task.update({"task_id": tasks_storage.next_task_id()})
-                print(str(new_task))
+                # print(str(new_task))
                 tasks_storage.append(new_task)
 
             if not JOIN_EXISTING_OBJECTIVE:
