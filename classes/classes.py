@@ -18,20 +18,32 @@ class Epic:
         stories: A list of stories that are part of this epic.
     """
 
-    def __init__(self, description: str):
+    def __init__(self, name: str, description: str):
+        self.name = name
         self.description = description
         self.stories: List[Story] = []
 
-    def save_to_yaml_file(self, file_path: str):
+    def save_to_yaml(self, file_path: str):
         """Saves the epic to a YAML file.
 
         Args:
             file_path: The path to the YAML file to save the epic.
         """
-        stories_dicts = [story.to_dict() for story in self.stories]
+
+        # build a dict with hierarchy of epic, stories and tasks
         epic_dict = {
-            "epic": {"description": self.description, "stories": stories_dicts}
+            "epic": {
+                "name": self.name,
+                "description": self.description,
+                "stories": [],
+            }
         }
+        for story in self.stories:
+            story_dict = story.to_dict()
+            story_dict["tasks"] = []
+            for task in story.tasks:
+                story_dict["tasks"].append(task.to_dict())
+            epic_dict["epic"]["stories"].append(story_dict)
 
         with open(file_path, "w", encoding="utf-8") as file:
             yaml.safe_dump(
@@ -226,27 +238,41 @@ class OpenAIAgent:
         name = self.openai_call(prompt).strip()
         return Story(int(story_id), name, description)
 
-    def create_tasks(self, story: Story) -> List[Task]:
+    def create_tasks(self, epic: Epic, stories: List[Story]) -> List[Task]:
+        """Creates tasks based on the story description"""
+        for user_story in stories:
+            story = Story(
+                user_story["story_id"],
+                user_story["name"],
+                user_story["description"],
+            )
+
+            story = self.create_tasks_from_story(epic.description, story)
+            epic.stories.append(story)
+
+        return epic
+
+    def create_tasks_from_story(self, epic_description: str, story: Story):
         """Creates tasks based on the story description"""
         prompt = f"""
-            You are to create user tasks based on the following user story:
-            {story.description}.
+            You are to create tasks based on the epic, which is highlevel goal,
+            and based on the user story. The epic is: {epic_description}.
+            The user story is: {story.description}.
             Return one user task per line in your response.
-            The result must be a numbered list in the format:
+            The result must be a list in the format:
 
-            #. First user task
-            #. Second user task
+            First task
+            Second task
 
-            The number of each entry must be followed by a period.
             If your list is empty, write "There are no user tasks to add at this time.
             Unless your list is empty, do not include any headers before your numbered
             list or follow your numbered list with any other output."""
 
         response = self.openai_call(prompt)
-        new_user_tasks = response.split("\n")
+        tasks = response.split("\n")
 
-        for task_id, user_task in enumerate(new_user_tasks, 1):
-            parts = user_task.strip().split(".", 1)
+        for task_id, task in enumerate(tasks, 1):
+            parts = task.strip().split(".", 1)
             if len(parts) == 2:
                 task_id = "".join(s for s in parts[0] if s.isnumeric())
                 description = re.sub(r"[^\w\s_]+", "", parts[1]).strip()

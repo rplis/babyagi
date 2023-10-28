@@ -27,8 +27,9 @@ LLM_MODEL = config["LLM_MODEL"].lower()
 OPENAI_TEMPERATURE = float(config["OPENAI_TEMPERATURE"])
 OPENAI_MAX_TOKENS = int(config["OPENAI_MAX_TOKENS"])
 
-EPIC = config["EPIC"]
-epic = Epic(EPIC)
+EPIC_NAME = config["EPIC_NAME"]
+EPIC_DESCRIPTION = config["EPIC_DESCRIPTION"]
+epic = Epic(EPIC_NAME, EPIC_DESCRIPTION)
 
 print_in_color("CONFIGURATION", "BLUE")
 
@@ -36,7 +37,7 @@ print(f"LLM   : {LLM_MODEL}")
 
 print_in_color("EPIC", "CYAN")
 
-print(f"{EPIC}")
+print(f"{EPIC_NAME}: {EPIC_DESCRIPTION}")
 
 openai_agent = OpenAIAgent(
     model=LLM_MODEL,
@@ -49,4 +50,4 @@ print_in_color("PROCESSING", "MAGENTA")
 
 epic = openai_agent.create_stories(epic)
 
-epic.save_to_yaml_file("stories.yaml")
+epic.save_to_yaml(f"{EPIC_NAME}.yaml")

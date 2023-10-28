@@ -4,7 +4,7 @@ import os
 import yaml
 from dotenv import load_dotenv
 
-from classes import Epic, OpenAIAgent, Story, Task
+from classes import Epic, OpenAIAgent
 from functions.functions import load_config, print_in_color
 
 load_dotenv()
@@ -12,9 +12,11 @@ OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 
 YAML_FILE_PATH = "config.yaml"
 config = load_config(YAML_FILE_PATH)
+
 LLM_MODEL = config["LLM_MODEL"].lower()
 OPENAI_TEMPERATURE = float(config["OPENAI_TEMPERATURE"])
 OPENAI_MAX_TOKENS = int(config["OPENAI_MAX_TOKENS"])
+EPIC_NAME = config["EPIC_NAME"]
 
 openai_agent = OpenAIAgent(
     model=LLM_MODEL,
@@ -23,22 +25,19 @@ openai_agent = OpenAIAgent(
     api_key=OPENAI_API_KEY,
 )
 
-with open("stories.yaml", encoding="utf-8") as f:
-    stories = yaml.safe_load(f)
+with open(f"{EPIC_NAME}.yaml", encoding="utf-8") as f:
+    objective = yaml.safe_load(f)
 
+epic = Epic(
+    name=objective["epic"]["name"],
+    description=objective["epic"]["description"],
+)
 print_in_color("CONFIGURATION", "BLUE")
 print(f"LLM   : {LLM_MODEL}")
+print(f"EPIC  : {epic.name} - {epic.description}")
 
 print_in_color("PROCESSING", "MAGENTA")
 
-for user_story in stories["stories"]:
-    story = Story(
-        user_story["story_id"], user_story["name"], user_story["description"]
-    )
+epic = openai_agent.create_tasks(epic, objective["epic"]["stories"])
 
-    story = openai_agent.create_tasks(story)
-    story.save_to_yaml("tasks.yaml")
-
-    print_in_color(f"STORY: {story.name}", "red")
-    for task in story.tasks:
-        print(f"{task.task_id} - {task.name} - {task.description}")
+epic.save_to_yaml("epic.yaml")

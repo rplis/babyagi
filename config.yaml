@@ -1,7 +1,8 @@
-LLM_MODEL: gpt-4 # alternatively, gpt-4, text-davinci-003, etc
-OPENAI_TEMPERATURE: 0.2
+LLM_MODEL: gpt-3.5-turbo # gpt-4 # alternatively, gpt-4, text-davinci-003, etc
+OPENAI_TEMPERATURE: 0.1
 OPENAI_MAX_TOKENS: 3000
-EPIC: |
+EPIC_NAME: "CryptoNews"
+EPIC_DESCRIPTION: |
   Develop the app that will follow the following flow:
   1. connect to cryptocurrency news website or api (try to find best website yourself)
   2. for each new incomming news categorise it based on

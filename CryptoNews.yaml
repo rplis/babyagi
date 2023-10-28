@@ -1,0 +1,34 @@
+epic:
+  name: CryptoNews
+  description: "Develop the app that will follow the following flow:\n1. connect to\
+    \ cryptocurrency news website or api (try to find best website yourself)\n2. for\
+    \ each new incomming news categorise it based on\n  a. what cryptocurrency it\
+    \ is related to\n  b. price impact. Propose price impact rate:\n      -10 is max\
+    \ negative impact,\n      0 is no impact,\n      10 is max positive impact\n3.\
+    \ store the news in database\n4. create a simple web app that will display the\
+    \ news in a table"
+  stories:
+  - story_id: 1
+    name: ConnectNews
+    description: As a user I want the app to connect to a cryptocurrency news website
+      or API so that I can receive the latest news updates
+  - story_id: 2
+    name: Categorize Cryptocurrency News
+    description: As a user I want the app to categorize each incoming news based on
+      the cryptocurrency it is related to so that I can easily find news about specific
+      cryptocurrencies
+  - story_id: 3
+    name: PriceImpactRate
+    description: As a user I want the app to propose a price impact rate for each
+      news article ranging from 10 max negative impact to 10 max positive impact so
+      that I can quickly assess the potential impact of the news on cryptocurrency
+      prices
+  - story_id: 4
+    name: store news articles
+    description: As a user I want the app to store the categorized news articles in
+      a database so that I can access them later and review past news updates
+  - story_id: 5
+    name: NewsTable
+    description: As a user I want the app to create a simple web app that displays
+      the categorized news articles in a table format so that I can easily browse
+      and read the news on a userfriendly interface

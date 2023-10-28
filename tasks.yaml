@@ -365,3 +365,258 @@ tasks:
   name: '"Confirm Auto-Updates"'
   description: Check the apps update history to confirm that automatic updates are
     working properly
+story:
+  description: As a developer I want to research and connect to the best cryptocurrency
+    news website or API so that the app can fetch the latest news
+  tasks:
+  - task_id: '1'
+    name: '"Cryptocurrency Research"'
+    description: Research the best cryptocurrency news websites and APIs available
+  - task_id: '2'
+    name: News Evaluation
+    description: Evaluate each option based on reliability update frequency and relevance
+      of news
+  - task_id: '3'
+    name: '"Select Crypto News Source"'
+    description: Select the most suitable cryptocurrency news website or API
+  - task_id: '4'
+    name: API Integration Plan
+    description: Create a plan for connecting the chosen website or API to the app
+  - task_id: '5'
+    name: API Integration
+    description: Implement the connection between the app and the chosen website or
+      API
+  - task_id: '6'
+    name: App Connection Test
+    description: Test the connection to ensure the app is successfully fetching the
+      latest news
+  - task_id: '7'
+    name: Testing Troubleshooting
+    description: Troubleshoot and fix any issues that arise during testing
+  - task_id: '8'
+    name: Website/API Documentation
+    description: Document the process and any important details about the chosen website
+      or API for future reference
+story:
+  description: As a system I want to categorize each incoming news based on the cryptocurrency
+    it is related to so that users can easily find news about specific cryptocurrencies
+  tasks:
+  - task_id: '1'
+    name: '"Cryptocurrency Identification in News"'
+    description: Identify the cryptocurrency mentioned in the incoming news
+  - task_id: '2'
+    name: '"Cryptocurrency News Categorization"'
+    description: Categorize the news based on the identified cryptocurrency
+  - task_id: '3'
+    name: Cryptocurrency Filter Creation
+    description: Create a filter option for users to select specific cryptocurrencies
+  - task_id: '4'
+    name: Cryptocurrency News Display
+    description: Display the categorized news under the selected cryptocurrency filter
+  - task_id: '5'
+    name: '"Realtime News Update"'
+    description: Update the news category in realtime as new news comes in
+  - task_id: '6'
+    name: '"Cryptocurrency News Search"'
+    description: Implement a search function for users to find news about specific
+      cryptocurrencies
+  - task_id: '7'
+    name: Crypto News Alert
+    description: Create an alert system to notify users of new news about their chosen
+      cryptocurrencies
+story:
+  description: As a system I want to categorize each incoming news based on its potential
+    price impact so that users can understand the potential market implications
+  tasks:
+  - task_id: '1'
+    name: News Content Analysis
+    description: Develop an algorithm to analyze the content of incoming news for
+      keywords and phrases that could potentially impact market prices
+  - task_id: '2'
+    name: '"News Impact Categorization"'
+    description: Implement a feature in the system that automatically categorizes
+      each incoming news based on its potential price impact
+  - task_id: '3'
+    name: News Impact Categorization Test
+    description: Test the systems ability to accurately categorize news based on potential
+      price impact
+  - task_id: '4'
+    name: News Impact Interface
+    description: Create a userfriendly interface that clearly displays the potential
+      market implications of each news item
+  - task_id: '5'
+    name: News Categorization Feedback
+    description: Develop a feedback mechanism for users to report inaccuracies in
+      the systems categorization of news items
+  - task_id: '6'
+    name: '"Keyword Database Update"'
+    description: Regularly update the systems keyword and phrase database to reflect
+      current market trends and factors
+  - task_id: '7'
+    name: Price Impact Filter
+    description: Implement a feature that allows users to filter news items based
+      on their potential price impact
+  - task_id: '8'
+    name: News Volume Management
+    description: Ensure the system can handle a large volume of incoming news and
+      categorize them in realtime
+  - task_id: '9'
+    name: '"Price Impact Alert"'
+    description: Develop a system notification feature to alert users of news with
+      high potential price impact
+  - task_id: '10'
+    name: '"Algorithm Optimization"'
+    description: Regularly review and update the systems categorization algorithm
+      to improve accuracy and efficiency
+story:
+  description: As a system I want to propose a price impact rate for each news item
+    ranging from 10 max negative impact to 10 max positive impact so that users can
+    gauge the potential impact of the news on the price of the related cryptocurrency
+  tasks:
+  - task_id: '1'
+    name: '"News Impact Algorithm Development"'
+    description: Develop an algorithm to analyze the content of each news item and
+      assign a price impact rate ranging from 10 to 10
+  - task_id: '2'
+    name: News Price Impact Feature
+    description: Implement a feature in the system to automatically assign a price
+      impact rate to each news item as it is added to the platform
+  - task_id: '3'
+    name: '"News Impact Indicator"'
+    description: Create a visual indicator on the user interface to display the price
+      impact rate for each news item
+  - task_id: '4'
+    name: Price Impact Accuracy Test
+    description: Test the accuracy of the price impact rate by comparing it with actual
+      price changes in the related cryptocurrency after the news is published
+  - task_id: '5'
+    name: Price Impact Filter
+    description: Provide a feature for users to filter news items based on their price
+      impact rate
+  - task_id: '6'
+    name: Crypto Price History
+    description: Develop a feature that allows users to view a history of price impact
+      rates for each cryptocurrency
+  - task_id: '7'
+    name: Algorithm Update Implementation
+    description: Implement a system to regularly update the price impact rate algorithm
+      based on feedback and accuracy
+  - task_id: '8'
+    name: '"Price Impact Explanation"'
+    description: Create a help section explaining the price impact rate and how it
+      is calculated
+  - task_id: '9'
+    name: Price Impact Feedback
+    description: Implement a feedback system for users to report any discrepancies
+      they notice in the price impact rate
+  - task_id: '10'
+    name: Price Impact Monitoring
+    description: Regularly monitor and adjust the price impact rate system to ensure
+      it remains accurate and useful for users
+story:
+  description: As a system I want to store all the categorized news in a database
+    so that it can be retrieved and displayed when needed
+  tasks:
+  - task_id: '1'
+    name: News Database Creation
+    description: Create a database to store all the categorized news
+  - task_id: '2'
+    name: '"Database Schema Design"'
+    description: Design a schema for the database that includes categories and news
+      details
+  - task_id: '3'
+    name: News Category Storage
+    description: Develop a system function to save news into the database under the
+      appropriate category
+  - task_id: '4'
+    name: '"News Category Retrieval"'
+    description: Implement a retrieval function to fetch news from the database based
+      on category
+  - task_id: '5'
+    name: News Retrieval Test
+    description: Test the retrieval function to ensure news is correctly displayed
+      when needed
+  - task_id: '6'
+    name: Database Backup Development
+    description: Develop a backup system for the database to prevent data loss
+  - task_id: '7'
+    name: News Database Update
+    description: Implement a system to update the database regularly with new categorized
+      news
+  - task_id: '8'
+    name: News Display Interface
+    description: Create a user interface to display the retrieved news in an organized
+      manner
+  - task_id: '9'
+    name: News System Testing
+    description: Test the entire system to ensure proper storage retrieval and display
+      of categorized news
+  - task_id: '10'
+    name: System Maintenance
+    description: Maintain the database and system regularly to ensure smooth operation
+story:
+  description: As a developer I want to create a simple web app so that users can
+    interact with the system and view the news
+  tasks:
+  - task_id: '1'
+    name: Web App Setup
+    description: Set up a basic web app framework
+  - task_id: '2'
+    name: Interface Design
+    description: Design a userfriendly interface for the web app
+  - task_id: '3'
+    name: '"User Interaction Feature"'
+    description: Implement a feature for users to interact with the system
+  - task_id: '4'
+    name: '"News API Integration"'
+    description: Integrate a news API to fetch the latest news
+  - task_id: '5'
+    name: News Display Feature
+    description: Create a feature to display the news on the web app
+  - task_id: '6'
+    name: Web App Testing
+    description: Test the functionality of the web app
+  - task_id: '7'
+    name: Web App Deployment
+    description: Deploy the web app for user access
+  - task_id: '8'
+    name: Feedback Collection
+    description: Collect user feedback for future improvements
+story:
+  description: As a user I want to view the categorized news in a table format on
+    the web app so that I can easily read and understand the information
+  tasks:
+  - task_id: '1'
+    name: Web App Login
+    description: User needs to log in to the web app
+  - task_id: '2'
+    name: News Section Navigation
+    description: User needs to navigate to the news section of the web app
+  - task_id: '3'
+    name: Select News Category
+    description: User needs to select the category of news they are interested in
+  - task_id: '4'
+    name: '"News Table View"'
+    description: User needs to click on the option to view the news in a table format
+  - task_id: '5'
+    name: Table Information Analysis
+    description: User needs to read and understand the information presented in the
+      table
+  - task_id: '6'
+    name: Table Pagination Navigation
+    description: User needs to navigate to different pages of the table if the news
+      items are spread across multiple pages
+  - task_id: '7'
+    name: Table Sorting Task
+    description: User needs to sort the table based on different columns if required
+  - task_id: '8'
+    name: News Filtering
+    description: User needs to filter the news items in the table based on specific
+      criteria if required
+  - task_id: '9'
+    name: Read News Story
+    description: User needs to click on a news item to read the full story if interested
+  - task_id: '10'
+    name: News Story Return
+    description: User needs to return to the table view after reading a full news
+      story
