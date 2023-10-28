@@ -1,0 +1,367 @@
+story: As a developer I want to research and identify the best cryptocurrency news
+  website or API to connect to so that the app can pull the most relevant and uptodate
+  news
+tasks:
+- task_id: '1'
+  name: '"Cryptocurrency Research"'
+  description: Research the top cryptocurrency news websites and APIs available
+- task_id: '2'
+  name: '"Source Verification"'
+  description: Identify the most reliable and uptodate sources among the researched
+    options
+- task_id: '3'
+  name: News Source Evaluation
+  description: Evaluate the relevance of the news provided by each source
+- task_id: '4'
+  name: Source Compatibility Check
+  description: Check the compatibility of the identified sources with the app
+- task_id: '5'
+  name: '"News Source Testing"'
+  description: Test the connection between the app and the chosen news source
+- task_id: '6'
+  name: News Monitoring
+  description: Monitor the news updates from the chosen source to ensure their relevance
+    and timeliness
+- task_id: '7'
+  name: '"Process Documentation"'
+  description: Document the research and testing process for future reference
+story: As a developer I want to create a system that can categorize incoming news
+  based on the cryptocurrency it is related to so that users can easily find news
+  about specific cryptocurrencies
+tasks:
+- task_id: '1'
+  name: Crypto News Categorization
+  description: Identify and categorize incoming news based on the cryptocurrency it
+    is related to
+- task_id: '2'
+  name: Crypto News Interface
+  description: Create a userfriendly interface where users can easily find news about
+    specific cryptocurrencies
+- task_id: '3'
+  name: '"Cryptocurrency News Search"'
+  description: Develop a search function that allows users to search for news based
+    on the name of the cryptocurrency
+- task_id: '4'
+  name: '"News Filter Implementation"'
+  description: Implement a filter feature that allows users to sort news based on
+    date relevance or cryptocurrency type
+- task_id: '5'
+  name: Crypto News Update
+  description: Develop a system that can automatically update the news feed with the
+    latest cryptocurrency news
+- task_id: '6'
+  name: Crypto News Subscription
+  description: Create a feature that allows users to subscribe to specific cryptocurrencies
+    and receive news updates about them
+- task_id: '7'
+  name: Feedback System Improvement
+  description: Implement a user feedback system to continuously improve the categorization
+    and search functions
+- task_id: '8'
+  name: System Scalability
+  description: Ensure the system is able to handle a large volume of news and users
+    without performance issues
+- task_id: '9'
+  name: News Source Verification
+  description: Implement a system to verify the credibility of the news source before
+    categorizing it under a specific cryptocurrency
+- task_id: '10'
+  name: '"Share CryptoNews Feature"'
+  description: Develop a feature that allows users to share specific cryptocurrency
+    news on their social media platforms
+story: As a developer I want to develop a feature that can assess the potential price
+  impact of each news item so that users can understand how news might affect their
+  investments
+tasks:
+- task_id: '1'
+  name: News Impact Identification
+  description: Identify the relevant news items that could potentially impact investment
+    prices
+- task_id: '2'
+  name: News Impact Algorithm Development
+  description: Develop an algorithm to assess the potential price impact of each news
+    item
+- task_id: '3'
+  name: News Algorithm Testing
+  description: Test the algorithm with a variety of news items to ensure accuracy
+- task_id: '4'
+  name: News Impact Interface
+  description: Create a userfriendly interface that displays the potential price impact
+    of each news item
+- task_id: '5'
+  name: News Impact Customization
+  description: Implement a feature that allows users to customize which types of news
+    items they want to see the potential price impact for
+- task_id: '6'
+  name: Investment Impact Alert
+  description: Develop a feature that sends notifications to users when a news item
+    could potentially impact their investments
+- task_id: '7'
+  name: Notification Feature Testing
+  description: Test the notification feature to ensure it works properly and sends
+    notifications in a timely manner
+- task_id: '8'
+  name: '"Price Impact Guide"'
+  description: Create a help section that explains how the potential price impact
+    is calculated and how users can use this feature to their advantage
+- task_id: '9'
+  name: Feature User Testing
+  description: Conduct user testing to gather feedback on the new feature and make
+    necessary adjustments
+- task_id: '10'
+  name: Feature Launch Monitoring
+  description: Launch the new feature and monitor its performance and user feedback
+    for further improvements
+story: As a developer I want to create a rating system for the price impact of news
+  with -10 representing maximum negative impact 0 representing no impact and +10 representing
+  maximum positive impact so that users can quickly understand the potential impact
+  of news
+tasks:
+- task_id: '1'
+  name: '"News Impact Rating"'
+  description: Develop a rating system that can assign values from -10 to +10 based
+    on the price impact of news
+- task_id: '2'
+  name: '"News Rating Feature"'
+  description: Implement a feature that allows users to view the rating of each news
+    item
+- task_id: '3'
+  name: News Impact Analysis
+  description: Create an algorithm that can analyze the content of news and determine
+    its potential impact on price
+- task_id: '4'
+  name: '"Rating System Test"'
+  description: Test the rating system to ensure it accurately represents the potential
+    impact of news on price
+- task_id: '5'
+  name: News Rating Interface
+  description: Develop a userfriendly interface that clearly displays the rating of
+    each news item
+- task_id: '6'
+  name: '"News Rating Sort"'
+  description: Implement a feature that allows users to sort news items based on their
+    ratings
+- task_id: '7'
+  name: Rating System Guide
+  description: Create a help section that explains the rating system to users
+- task_id: '8'
+  name: '"Rating System Update"'
+  description: Regularly update the rating system to reflect changes in market conditions
+    and news impact
+- task_id: '9'
+  name: Rating System Compatibility
+  description: Ensure the rating system is compatible with various devices and browsers
+    for user convenience
+- task_id: '10'
+  name: Rating System Improvement
+  description: Gather user feedback on the rating system and make necessary improvements
+story: As a developer I want to build a database to store all the categorized and
+  rated news so that the app can retrieve and display them when needed
+tasks:
+- task_id: '1'
+  name: '"News Database Design"'
+  description: Design the database schema to store categorized and rated news
+- task_id: '2'
+  name: Database Development
+  description: Develop the database using the designed schema
+- task_id: '3'
+  name: '"News Data Storage"'
+  description: Create a function to store news data into the database
+- task_id: '4'
+  name: News Rating Development
+  description: Develop a rating system to rate the news
+- task_id: '5'
+  name: UpdateNewsRatingFunction
+  description: Create a function to update the news rating in the database
+- task_id: '6'
+  name: '"News Categorization Function"'
+  description: Develop a function to categorize the news
+- task_id: '7'
+  name: UpdateNewsCategoryFunction
+  description: Create a function to update the news category in the database
+- task_id: '8'
+  name: '"News Data Retrieval"'
+  description: Develop a function to retrieve news data from the database
+- task_id: '9'
+  name: '"Display News Function"'
+  description: Create a function to display the retrieved news data in the app
+- task_id: '10'
+  name: '"News Database Testing"'
+  description: Test the database to ensure it stores retrieves and displays news data
+    correctly
+story: As a developer I want to design a simple web app interface that displays the
+  news in a table so that users can easily browse and read the news
+tasks:
+- task_id: '1'
+  name: News API Selection
+  description: Research and select a reliable news API to fetch news data for the
+    web app
+- task_id: '2'
+  name: Web App Interface Design
+  description: Design a simple and intuitive user interface for the web app
+- task_id: '3'
+  name: '"API News Fetching"'
+  description: Develop a function to fetch news data from the selected API
+- task_id: '4'
+  name: '"News Data Table"'
+  description: Implement a table in the web app to display the fetched news data
+- task_id: '5'
+  name: News Table Verification
+  description: Ensure the table displays relevant news information such as title author
+    date and a brief summary
+- task_id: '6'
+  name: '"News Sorting Feature"'
+  description: Implement a feature to sort news items by date title or author
+- task_id: '7'
+  name: Article Click Feature
+  description: Develop a feature that allows users to click on a news item and read
+    the full article
+- task_id: '8'
+  name: Web App Testing
+  description: Test the web app to ensure all features work as expected and the news
+    data is displayed correctly
+- task_id: '9'
+  name: Mobile Optimization
+  description: Optimize the web app for mobile devices to ensure a seamless user experience
+    across all platforms
+- task_id: '10'
+  name: Web App Deployment
+  description: Deploy the web app and monitor for any issues or bugs
+story: As a user I want to be able to view the latest cryptocurrency news in a table
+  format so that I can easily digest the information
+tasks:
+- task_id: '1'
+  name: Cryptocurrency News Access
+  description: As a user I want to be able to access a dedicated section on the platform
+    where the latest cryptocurrency news is displayed
+- task_id: '2'
+  name: '"Crypto News Display"'
+  description: As a user I want the latest cryptocurrency news to be displayed in
+    a table format for easy reading and comparison
+- task_id: '3'
+  name: Realtime Table Update
+  description: As a user I want the table to be updated in realtime or as close to
+    realtime as possible so that I always have the most recent news
+- task_id: '4'
+  name: '"News Sorting Feature"'
+  description: As a user I want to be able to sort the news table by different categories
+    such as date cryptocurrency name or news source
+- task_id: '5'
+  name: News Source Navigation
+  description: As a user I want to be able to click on a news item in the table and
+    be taken to the original source of the news for more detailed information
+- task_id: '6'
+  name: Cryptocurrency News Filter
+  description: As a user I want to be able to filter the news table by specific cryptocurrencies
+    so that I can easily find news about the cryptocurrencies I am most interested
+    in
+- task_id: '7'
+  name: News Update Notifications
+  description: As a user I want to have an option to receive notifications when new
+    news items are added to the table so that I dont miss any important updates
+story: As a user I want to see the potential price impact of each news item so that
+  I can make informed decisions about my cryptocurrency investments
+tasks:
+- task_id: '1'
+  name: Cryptocurrency News Filter
+  description: As a user I want to be able to filter news items by specific cryptocurrencies
+    so that I can see the potential price impact on my specific investments
+- task_id: '2'
+  name: Crypto News Notifications
+  description: As a user I want to receive notifications about major news items that
+    could potentially impact the price of my cryptocurrency investments
+- task_id: '3'
+  name: News Impact Summary
+  description: As a user I want to see a summary of the potential price impact of
+    each news item on my cryptocurrency investments
+- task_id: '4'
+  name: '"News-Impact Analysis"'
+  description: As a user I want to have access to a historical data of news impacts
+    on cryptocurrency prices so that I can make informed decisions
+- task_id: '5'
+  name: Cryptocurrency News Customization
+  description: As a user I want to be able to customize the news feed to only show
+    news related to my cryptocurrency investments
+- task_id: '6'
+  name: News Impact Prediction
+  description: As a user I want to see a prediction of the potential price impact
+    of each news item on my cryptocurrency investments
+- task_id: '7'
+  name: '"News Impact Sorting"'
+  description: As a user I want to be able to sort news items by their potential price
+    impact so that I can prioritize my reading
+- task_id: '8'
+  name: News Impact Visualization
+  description: As a user I want to see a visual representation charts graphs of the
+    potential price impact of each news item on my cryptocurrency investments
+- task_id: '9'
+  name: Save Impactful News
+  description: As a user I want to be able to save news items that have a significant
+    potential price impact for later review
+- task_id: '10'
+  name: Share Price-Impact News
+  description: As a user I want to be able to share news items with potential price
+    impact with my fellow investors
+story: As a user I want to be able to filter the news by cryptocurrency so that I
+  can focus on the cryptocurrencies I am interested in
+tasks:
+- task_id: '1'
+  name: '"Select Cryptocurrency News"'
+  description: As a user I want to be able to select the cryptocurrency option in
+    the news filter settings
+- task_id: '2'
+  name: Cryptocurrency News Search
+  description: As a user I want to be able to search for specific cryptocurrencies
+    in the news filter
+- task_id: '3'
+  name: Save Crypto Preferences
+  description: As a user I want to be able to save my cryptocurrency filter preferences
+    for future use
+- task_id: '4'
+  name: Clear Cryptocurrency Filter
+  description: As a user I want to be able to clear my cryptocurrency filter when
+    I want to see all news
+- task_id: '5'
+  name: Cryptocurrency News Filter
+  description: As a user I want to be able to select multiple cryptocurrencies in
+    the news filter
+- task_id: '6'
+  name: Cryptocurrency Filter List
+  description: As a user I want to be able to see a list of available cryptocurrencies
+    to filter by
+- task_id: '7'
+  name: Update Crypto Preferences
+  description: As a user I want to be able to update my cryptocurrency filter preferences
+    as my interests change
+- task_id: '8'
+  name: Cryptocurrency Filter Switching
+  description: As a user I want to be able to easily switch between my saved cryptocurrency
+    filters
+- task_id: '9'
+  name: Crypto News Count
+  description: As a user I want to be able to see the number of news articles available
+    for each cryptocurrency in my filter
+- task_id: '10'
+  name: Crypto News Alerts
+  description: As a user I want to be able to receive notifications when new news
+    articles match my cryptocurrency filter
+story: As a user I want the app to automatically update with the latest news so that
+  I always have the most current information
+tasks:
+- task_id: '1'
+  name: '"Activate Auto-Updates"'
+  description: Enable automatic updates in the app settings
+- task_id: '2'
+  name: Update Frequency Setting
+  description: Set the frequency of automatic updates to ensure the news is always
+    current
+- task_id: '3'
+  name: News Category Selection
+  description: Choose the categories of news for the app to automatically update
+- task_id: '4'
+  name: Enable Push Notifications
+  description: Enable push notifications to be alerted when new updates are available
+- task_id: '5'
+  name: '"Confirm Auto-Updates"'
+  description: Check the apps update history to confirm that automatic updates are
+    working properly

@@ -1,12 +1,14 @@
-LLM_MODEL: gpt-3.5-turbo # alternatively, gpt-4, text-davinci-003, etc
-OPENAI_API_KEY: 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 #ACN
-# OPENAI_API_KEY: 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 #PRIVATE
+LLM_MODEL: gpt-4 # alternatively, gpt-4, text-davinci-003, etc
 OPENAI_TEMPERATURE: 0.2
-OPENAI_MAX_TOKENS: 2000
+OPENAI_MAX_TOKENS: 3000
 EPIC: |
   Develop the app that will follow the following flow:
   1. connect to cryptocurrency news website or api (try to find best website yourself)
   2. for each new incomming news categorise it based on
     a. what cryptocurrency it is related to
-    b. propose price impact assumption. -10 is negative impact,
-      so the price will fall significantly, 0 no impact, 10 positive impact on price"
+    b. price impact. Propose price impact rate:
+        -10 is max negative impact,
+        0 is no impact,
+        10 is max positive impact
+  3. store the news in database
+  4. create a simple web app that will display the news in a table

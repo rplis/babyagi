@@ -1,76 +1,39 @@
-description: description
-stories:
-- description: As a user I want to be able to create a new account so that I can access
-    the system
-  name: Account Creation
-  story_id: 1
-- description: As a user I want to be able to log in to my account so that I can access
-    my personalized information
-  name: Login
-  story_id: 2
-- description: As a user I want to be able to update my account information so that
-    my profile is always up to date
-  name: Update Account
-  story_id: 3
-- description: As a user I want to be able to reset my password in case I forget it
-  name: Reset Password
-  story_id: 4
-- description: As a user I want to be able to view my personal dashboard so that I
-    can see an overview of my account activity
-  name: Dashboard
-  story_id: 5
-- description: As a user I want to be able to search for specific items or information
-    within the system
-  name: Search
-  story_id: 6
-- description: As a user I want to be able to filter and sort search results to find
-    what Im looking for more easily
-  name: Filtering
-  story_id: 7
-- description: As a user I want to be able to add items to my favorites or wishlist
-    for future reference
-  name: Favorites
-  story_id: 8
-- description: As a user I want to be able to view and manage my favorites or wishlist
-  name: Favorites
-  story_id: 9
-- description: As a user I want to be able to view detailed information about a specific
-    item
-  name: Item Details
-  story_id: 10
-- description: As a user I want to be able to add items to my shopping cart for purchase
-  name: Add to Cart
-  story_id: 11
-- description: As a user I want to be able to view and manage my shopping cart
-  name: Cart Management
-  story_id: 12
-- description: As a user I want to be able to complete the checkout process and make
-    a purchase
-  name: Checkout
-  story_id: 13
-- description: As a user I want to be able to track the status of my orders
-  name: Order Tracking
-  story_id: 14
-- description: As a user I want to be able to leave reviews and ratings for items
-    I have purchased
-  name: Reviewing
-  story_id: 15
-- description: As a user I want to be able to contact customer support for assistance
-    or inquiries
-  name: Contact Support
-  story_id: 16
-- description: As a user I want to be able to receive notifications about important
-    updates or promotions
-  name: notifications
-  story_id: 17
-- description: As a user I want to be able to customize my account settings and preferences
-  name: Customization
-  story_id: 18
-- description: As a user I want to be able to view and manage my past orders and purchase
-    history
-  name: Order History
-  story_id: 19
-- description: As a user I want to be able to provide feedback or suggestions to improve
-    the system
-  name: Feedback
-  story_id: 20
+epic:
+  description: "Develop the app that will follow the following flow:\n1. connect to\
+    \ cryptocurrency news website or api (try to find best website yourself)\n2. for\
+    \ each new incomming news categorise it based on\n  a. what cryptocurrency it\
+    \ is related to\n  b. price impact. Propose price impact rate:\n      -10 is max\
+    \ negative impact,\n      0 is no impact,\n      10 is max positive impact\n3.\
+    \ store the news in database\n4. create a simple web app that will display the\
+    \ news in a table"
+  stories:
+  - story_id: 1
+    name: Cryptocurrency News Integration
+    description: As a developer I want to research and connect to the best cryptocurrency
+      news website or API so that the app can fetch the latest news
+  - story_id: 2
+    name: Cryptocurrency News Categorization
+    description: As a system I want to categorize each incoming news based on the
+      cryptocurrency it is related to so that users can easily find news about specific
+      cryptocurrencies
+  - story_id: 3
+    name: News Impact Categorization
+    description: As a system I want to categorize each incoming news based on its
+      potential price impact so that users can understand the potential market implications
+  - story_id: 4
+    name: News Impact Rating
+    description: As a system I want to propose a price impact rate for each news item
+      ranging from 10 max negative impact to 10 max positive impact so that users
+      can gauge the potential impact of the news on the price of the related cryptocurrency
+  - story_id: 5
+    name: News Storage System
+    description: As a system I want to store all the categorized news in a database
+      so that it can be retrieved and displayed when needed
+  - story_id: 6
+    name: News Web App
+    description: As a developer I want to create a simple web app so that users can
+      interact with the system and view the news
+  - story_id: 7
+    name: News Table View
+    description: As a user I want to view the categorized news in a table format on
+      the web app so that I can easily read and understand the information
