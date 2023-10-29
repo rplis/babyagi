@@ -10,6 +10,61 @@ import openai
 import yaml
 
 
+class Project:
+    """A Project class"""
+
+    def __init__(self, name: str, description: str, epics=None):
+        self.name = name
+        self.description = description
+        self.epics = epics if epics is not None else []
+
+    def to_dict(self) -> dict:
+        """Converts the project to a dictionary.
+
+        Returns:
+            A dictionary representation of the project.
+        """
+        return {
+            "name": self.name,
+            "description": self.description,
+            "epics": self.epics,
+        }
+
+    def save_to_yaml(self, file_path: str):
+        """Saves the project to a YAML file.
+
+        Args:
+            file_path: The path to the YAML file to save the project.
+        """
+
+        project_dict = {
+            "project": {
+                "name": self.name,
+                "description": self.description,
+                "epics": [],
+            }
+        }
+        for epic in self.epics:
+            epic_dict = epic.to_dict()
+            epic_dict["stories"] = []
+            for story in epic.stories:
+                story_dict = story.to_dict()
+                story_dict["tasks"] = []
+                for task in story.tasks:
+                    story_dict["tasks"].append(task.to_dict())
+                epic_dict["stories"].append(story_dict)
+            project_dict["project"]["epics"].append(epic_dict)
+        with open(file_path, "w", encoding="utf-8") as file:
+            yaml.safe_dump(
+                project_dict,
+                file,
+                sort_keys=False,
+                allow_unicode=True,
+                default_flow_style=False,
+                default_style=None,
+            )
+
+
 class Epic:
     """An epic.
 
@@ -18,10 +73,23 @@ class Epic:
         stories: A list of stories that are part of this epic.
     """
 
-    def __init__(self, name: str, description: str):
+    def __init__(self, epic_id: int, name: str, description: str, stories=None):
+        self.epic_id = epic_id
         self.name = name
         self.description = description
-        self.stories: List[Story] = []
+        self.stories = stories if stories is not None else []
+
+    def to_dict(self) -> dict:
+        """Converts the epic to a dictionary.
+
+        Returns:
+            A dictionary representation of the epic.
+        """
+        return {
+            "epic_id": self.epic_id,
+            "name": self.name,
+            "description": self.description,
+        }
 
     def save_to_yaml(self, file_path: str):
         """Saves the epic to a YAML file.
@@ -33,6 +101,7 @@ class Epic:
         # build a dict with hierarchy of epic, stories and tasks
         epic_dict = {
             "epic": {
+                "epic_id": self.epic_id,
                 "name": self.name,
                 "description": self.description,
                 "stories": [],
@@ -65,11 +134,11 @@ class Story:
         description: A detailed description of the story.
     """
 
-    def __init__(self, story_id: int, name: str, description: str):
+    def __init__(self, story_id: int, name: str, description: str, tasks=None):
         self.story_id = story_id
         self.name = name
         self.description = description
-        self.tasks: List[Task] = []
+        self.tasks = tasks if tasks is not None else []
 
     def to_dict(self) -> dict:
         """Converts the story to a dictionary.
@@ -107,10 +176,13 @@ class Story:
 class Task:
     """A user task."""
 
-    def __init__(self, task_id: int, name: str, description: str):
+    def __init__(
+        self, task_id: int, name: str, description: str, solution=None
+    ):
         self.task_id = task_id
         self.name = name
         self.description = description
+        self.solution = solution
 
     def to_dict(self) -> dict:
         """Converts the task to a dictionary.
@@ -186,40 +258,74 @@ class OpenAIAgent:
                 print(f"OpenAI API request exceeded rate limit: {e}")
             except openai.error.OpenAIError as e:
                 print(f"OpenAI API request failed: {e}")
-            except Exception as e:
-                print(f"Unknown error: {e}")
+            retries += 1
 
-    def create_stories(self, epic: Epic) -> Epic:
-        """Creates stories based on the epic description"""
+    def create_epics(self, project: Project) -> Project:
+        """Creates epics based on the project description"""
         prompt = f"""
-            You are to create user stories based on the following epic: {epic.description}.
-            Return one user story per line in your response.
-            The result must be a numbered list in the format:
+            You are Product Owner and you work in scrum methodology using
+            project, epics, stories and tasks hierarchy.
+            You are to create epics based on the following project description:
+            {project.description}.
+            Return one epic per line in your response.
+            The result must be a list in the format:
 
-            #. First user story
-            #. Second user story
+            #. First epic
+            #. Second epic
 
             The number of each entry must be followed by a period.
-            If your list is empty, write "There are no user stories to add at this time.
+            If your list is empty, write "There are no epics to add at this time.
             Unless your list is empty, do not include any headers before your numbered
             list or follow your numbered list with any other output."""
 
         response = self.openai_call(prompt)
-        new_user_stories = response.split("\n")
+        epics = response.split("\n")
 
-        for story_id, user_story in enumerate(new_user_stories, 1):
-            parts = user_story.strip().split(".", 1)
+        for epic_id, epic in enumerate(epics, 1):
+            parts = epic.strip().split(".", 1)
             if len(parts) == 2:
-                story_id = "".join(s for s in parts[0] if s.isnumeric())
+                epic_id = "".join(s for s in parts[0] if s.isnumeric())
                 description = re.sub(r"[^\w\s_]+", "", parts[1]).strip()
 
-                if description.strip() and story_id.isnumeric():
-                    epic.stories.append(
-                        self.create_story(int(story_id), description)
+                if description.strip() and epic_id.isnumeric():
+                    project.epics.append(
+                        self.create_epic(int(epic_id), description)
                     )
-                    print(f"{story_id}. {description}\n")
+                    print(f"{epic_id}. {description}\n")
 
-        return epic
+        return project
+
+    def create_epic(self, epic_id: int, description: str) -> Epic:
+        """Creates an epic name based on its description.
+
+        Args:
+            epic_id: The ID of the epic.
+            description: The description of the epic.
+
+        Returns:
+            An Epic object.
+        """
+        prompt = f"""You are to create an epic short name based on the
+        following description: {description}. Return only one or maximum three
+        words. Do not include any punctuation and apostrophies."""
+
+        name = self.openai_call(prompt).strip()
+        return Epic(int(epic_id), name, description)
+
+    def create_stories(self, project: Project) -> Project:
+        """Creates stories based on the project description"""
+        for epic in project.epics:
+            epic = Epic(
+                epic["epic_id"],
+                epic["name"],
+                epic["description"],
+            )
+
+            stories = self.create_stories_from_epic(project, epic)
+            epic.stories = stories
+            project.epics[epic.epic_id - 1] = epic
+
+        return project
 
     def create_story(self, story_id: int, description: str) -> Story:
         """Creates a story name based on its description.
@@ -238,31 +344,79 @@ class OpenAIAgent:
         name = self.openai_call(prompt).strip()
         return Story(int(story_id), name, description)
 
-    def create_tasks(self, epic: Epic, stories: List[Story]) -> List[Task]:
+    def create_tasks(self, project: Project) -> Project:
         """Creates tasks based on the story description"""
-        for user_story in stories:
-            story = Story(
-                user_story["story_id"],
-                user_story["name"],
-                user_story["description"],
+        for epic in project.epics:
+            epic = Epic(
+                epic["epic_id"],
+                epic["name"],
+                epic["description"],
+                epic["stories"],
             )
+            for story in epic.stories:
+                story = Story(
+                    story["story_id"],
+                    story["name"],
+                    story["description"],
+                    story["tasks"],
+                )
+                story = self.create_tasks_from_story(
+                    project.description, epic.description, story
+                )
+                epic.stories[story.story_id - 1] = story
+            project.epics[epic.epic_id - 1] = epic
+        return project
 
-            story = self.create_tasks_from_story(epic.description, story)
-            epic.stories.append(story)
+    def create_stories_from_epic(
+        self, project: Project, epic: Epic
+    ) -> List[Story]:
+        """Creates stories based on the epic description"""
+        prompt = f"""
+            You are to create user stories. For your information main goal
+            of the project is: {project.description}. But you are going to
+            focus on the following epic only: {epic.description}. Please provide
+            only key user stories for this particiular epic. Return one user
+            story per line in your response.
+            The result must be a numbered list in the format:
 
-        return epic
+            #. First user story
+            #. Second user story
 
-    def create_tasks_from_story(self, epic_description: str, story: Story):
+            The number of each entry must be followed by a period.
+            If your list is empty, write "There are no user stories to add at this time.
+            Unless your list is empty, do not include any headers before your numbered
+            list or follow your numbered list with any other output."""
+        stories_lst = []
+        response = self.openai_call(prompt)
+        stories = response.split("\n")
+
+        for story_id, story in enumerate(stories, 1):
+            parts = story.strip().split(".", 1)
+            if len(parts) == 2:
+                story_id = "".join(s for s in parts[0] if s.isnumeric())
+                description = re.sub(r"[^\w\s_]+", "", parts[1]).strip()
+
+                if description.strip() and story_id.isnumeric():
+                    story = self.create_story(story_id, description)
+                    print(f"Story {story_id} created")
+                    stories_lst.append(story)
+
+        return stories_lst
+
+    def create_tasks_from_story(
+        self, project_description, epic_description: str, story: Story
+    ):
         """Creates tasks based on the story description"""
         prompt = f"""
-            You are to create tasks based on the epic, which is highlevel goal,
-            and based on the user story. The epic is: {epic_description}.
-            The user story is: {story.description}.
-            Return one user task per line in your response.
+            You are to create tasks. The overall goal is:  {project_description}.
+            Underneath is epic: {epic_description}. But you are going to
+            focus on the following story only:: {story.description}.
+            Please provide only key tasks for this particiular story. Return 
+            one task per line in your response.
             The result must be a list in the format:
 
-            First task
-            Second task
+            #. First task
+            #. Second task
 
             If your list is empty, write "There are no user tasks to add at this time.
             Unless your list is empty, do not include any headers before your numbered

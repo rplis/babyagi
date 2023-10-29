@@ -1,39 +1,166 @@
-epic:
+project:
+  name: CryptoNews
   description: "Develop the app that will follow the following flow:\n1. connect to\
-    \ cryptocurrency news website or api (try to find best website yourself)\n2. for\
-    \ each new incomming news categorise it based on\n  a. what cryptocurrency it\
-    \ is related to\n  b. price impact. Propose price impact rate:\n      -10 is max\
-    \ negative impact,\n      0 is no impact,\n      10 is max positive impact\n3.\
-    \ store the news in database\n4. create a simple web app that will display the\
-    \ news in a table"
-  stories:
-  - story_id: 1
-    name: Cryptocurrency News Integration
-    description: As a developer I want to research and connect to the best cryptocurrency
-      news website or API so that the app can fetch the latest news
-  - story_id: 2
-    name: Cryptocurrency News Categorization
-    description: As a system I want to categorize each incoming news based on the
-      cryptocurrency it is related to so that users can easily find news about specific
-      cryptocurrencies
-  - story_id: 3
-    name: News Impact Categorization
-    description: As a system I want to categorize each incoming news based on its
-      potential price impact so that users can understand the potential market implications
-  - story_id: 4
-    name: News Impact Rating
-    description: As a system I want to propose a price impact rate for each news item
-      ranging from 10 max negative impact to 10 max positive impact so that users
-      can gauge the potential impact of the news on the price of the related cryptocurrency
-  - story_id: 5
-    name: News Storage System
-    description: As a system I want to store all the categorized news in a database
-      so that it can be retrieved and displayed when needed
-  - story_id: 6
-    name: News Web App
-    description: As a developer I want to create a simple web app so that users can
-      interact with the system and view the news
-  - story_id: 7
-    name: News Table View
-    description: As a user I want to view the categorized news in a table format on
-      the web app so that I can easily read and understand the information
+    \ cryptocurrency news website via api (try to find best website yourself)\n2.\
+    \ for each new incomming news, categorise it based on\n  a. what cryptocurrency\
+    \ it is related to\n  b. price impact. Propose price impact rate:\n      (minus)\
+    \ -10 is max negative impact,\n      0 is no impact,\n      (plus) 10 is max positive\
+    \ impact\n3. store the news in database\n4. create a simple web app that will\
+    \ display the news in a table"
+  epics:
+  - epic_id: 1
+    name: CryptoLink
+    description: Connect to cryptocurrency news website via API
+    stories:
+    - story_id: 1
+      name: research_crypto_news_website
+      description: As a developer I want to research and identify the best cryptocurrency
+        news website that provides an API
+      tasks: []
+    - story_id: 2
+      name: ObtainAPIKey
+      description: As a developer I want to obtain an API key from the chosen cryptocurrency
+        news website
+      tasks: []
+    - story_id: 3
+      name: ConnectAPI
+      description: As a developer I want to connect to the cryptocurrency news website
+        API using the obtained API key
+      tasks: []
+    - story_id: 4
+      name: RetrieveNewsArticles
+      description: As a developer I want to retrieve the latest news articles from
+        the cryptocurrency news website API
+      tasks: []
+    - story_id: 5
+      name: Extract Information
+      description: As a developer I want to extract the relevant information from
+        each news article such as the cryptocurrency it is related to and the impact
+        rate
+      tasks: []
+    - story_id: 6
+      name: categorize news articles
+      description: As a developer I want to categorize each news article based on
+        the extracted information
+      tasks: []
+    - story_id: 7
+      name: store_news_articles
+      description: As a developer I want to store the categorized news articles in
+        a database for future use
+      tasks: []
+    - story_id: 8
+      name: ErrorHandling
+      description: As a developer I want to handle any errors or exceptions that may
+        occur during the API connection and data retrieval process
+      tasks: []
+  - epic_id: 2
+    name: CryptoImpact
+    description: Categorize news based on cryptocurrency and price impact
+    stories:
+    - story_id: 1
+      name: connect_news_website
+      description: As a user I want to be able to connect to a cryptocurrency news
+        website via API so that I can retrieve the latest news
+      tasks: []
+    - story_id: 2
+      name: Categorize Cryptocurrency
+      description: As a user I want the app to categorize each news article based
+        on the cryptocurrency it is related to so that I can easily find news about
+        specific cryptocurrencies
+      tasks: []
+    - story_id: 3
+      name: PriceImpactRate
+      description: As a user I want the app to assign a price impact rate to each
+        news article ranging from 10 max negative impact to 10 max positive impact
+        so that I can quickly assess the potential impact of the news on cryptocurrency
+        prices
+      tasks: []
+    - story_id: 4
+      name: store_articles
+      description: As a user I want the app to store the categorized news articles
+        in a database so that I can access them later
+      tasks: []
+    - story_id: 5
+      name: DisplayNewsTable
+      description: As a user I want the web app to display the categorized news articles
+        in a table so that I can easily browse through them
+      tasks: []
+    - story_id: 6
+      name: FilterSearch
+      description: As a user I want the web app to provide filters or search functionality
+        so that I can find news articles based on specific cryptocurrencies or price
+        impact rates
+      tasks: []
+  - epic_id: 3
+    name: NewsBase
+    description: Store news in a database
+    stories:
+    - story_id: 1
+      name: cryptocurrency news schema
+      description: As a developer I want to create a database schema to store cryptocurrency
+        news
+      tasks: []
+    - story_id: 2
+      name: ViewNewsTable
+      description: As a user I want to be able to view the stored news in a table
+        format on the web app
+      tasks: []
+    - story_id: 3
+      name: StoreNews
+      description: As a developer I want to create an API endpoint to receive incoming
+        news and store it in the database
+      tasks: []
+    - story_id: 4
+      name: categorize_news
+      description: As a developer I want to categorize each news based on the cryptocurrency
+        it is related to
+      tasks: []
+    - story_id: 5
+      name: categorizeNews
+      description: As a developer I want to categorize each news based on the price
+        impact it may have
+      tasks: []
+    - story_id: 6
+      name: priceimpactrate
+      description: As a developer I want to assign a price impact rate to each news
+        ranging from 10 to 10
+      tasks: []
+    - story_id: 7
+      name: RealtimeNewsUpdate
+      description: As a developer I want to ensure that the stored news is updated
+        in realtime as new news comes in
+      tasks: []
+    - story_id: 8
+      name: Error Handling
+      description: As a developer I want to handle any errors that may occur during
+        the process of storing news in the database
+      tasks: []
+  - epic_id: 4
+    name: NewsTable
+    description: Create a simple web app to display news in a table
+    stories:
+    - story_id: 1
+      name: ViewNewsTable
+      description: As a user I want to be able to view the news articles in a table
+        format
+      tasks: []
+    - story_id: 2
+      name: NewsTableInfo
+      description: As a user I want to be able to see the title date and category
+        of each news article in the table
+      tasks: []
+    - story_id: 3
+      name: SortTable
+      description: As a user I want to be able to sort the table by date category
+        or title
+      tasks: []
+    - story_id: 4
+      name: FilterByCategory
+      description: As a user I want to be able to filter the table by category to
+        only show news articles related to a specific cryptocurrency
+      tasks: []
+    - story_id: 5
+      name: ClickArticle
+      description: As a user I want to be able to click on a news article in the table
+        to view the full article
+      tasks: []

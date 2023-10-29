@@ -1,0 +1,81 @@
+Id,Type,Linked Label,Title,Description
+,Epic,,CryptoNews,Develop a web app that fetches and categorizes cryptocurrency news articles and proposes a price impact rate for each news article
+1,Story,CryptoNews,ConnectNews,As a user I want the app to connect to a cryptocurrency news website or API so that I can receive the latest news updates
+1,Task,1,CryptoNews,Research and select the best cryptocurrency news website or API to connect to
+2,Task,1,Connect,Set up a connection to the selected cryptocurrency news website or API
+3,Task,1,fetchNews,Implement a function to fetch the latest news updates from the website or API
+4,Task,1,Model,Create a data model to represent the news articles including fields for cryptocurrency price impact and other relevant information
+5,Task,1,Categorize Crypto,Implement a function to categorize each news article based on the cryptocurrency it is related to
+6,Task,1,RateNews,Implement a function to propose a price impact rate for each news article
+7,Task,1,DB Setup,Set up a database to store the news articles
+8,Task,1,StoreNews,Implement a function to store the categorized and rated news articles in the database
+9,Task,1,NewsTable,Design and create a simple web app interface to display the news articles in a table
+10,Task,1,Fetch News,Implement a function to fetch the news articles from the database and display them in the web app
+11,Task,1,Connect,Test the app to ensure that it successfully connects to the cryptocurrency news website or API and displays the latest news updates in the web app
+12,Task,1,Optimize,Refine and optimize the apps performance if necessary
+13,Task,1,Document,Document the apps functionality and provide instructions for deployment and usage
+14,Task,1,Test,Conduct user testing to gather feedback and make any necessary improvements to the app
+15,Task,1,Deploy,Deploy the app to a production environment for public use
+2,Story,CryptoNews,Categorize Cryptocurrency News,As a user I want the app to categorize each incoming news based on the cryptocurrency it is related to so that I can easily find news about specific cryptocurrencies
+1,Task,2,CryptoNews,Research and select a reliable cryptocurrency news website or API to connect to
+2,Task,2,Extract News,Implement a data extraction mechanism to fetch incoming news from the selected website or API
+3,Task,2,CryptoCat,Develop a categorization algorithm to determine the cryptocurrency each news article is related to
+4,Task,2,Sentiment Rate,Implement a sentiment analysis algorithm to propose a price impact rate for each news article
+5,Task,2,Schema,Design and create a database schema to store the categorized news articles
+6,Task,2,StoreNews,Develop a data storage mechanism to store the news articles in the database
+7,Task,2,WebFrame,Create a web application framework eg Django Flask for the simple web app
+8,Task,2,Display News,Design and implement a user interface for the web app to display the categorized news articles in a table format
+9,Task,2,Categorize,Integrate the categorization and sentiment analysis algorithms into the web app to automatically categorize and propose price impact rates for incoming news articles
+10,Task,2,Realtime News,Implement a mechanism to continuously fetch and categorize new incoming news articles in realtime
+11,Task,2,CryptoSearch,Add functionality to allow users to search and filter news articles based on specific cryptocurrencies
+12,Task,2,Authenticate,Implement user authentication and authorization to ensure only authorized users can access the web app and its features
+13,Task,2,UpdateCryptoList,Implement a mechanism to periodically update the cryptocurrency list and their corresponding categories in the app
+14,Task,2,Test,Test the app thoroughly to ensure proper functionality and accuracy of categorization and sentiment analysis
+15,Task,2,Deploy,Deploy the web app to a production environment for users to access and utilize
+16,Task,2,Monitor,Monitor and maintain the app to ensure its continuous operation and performance optimization
+3,Story,CryptoNews,PriceImpactRate,As a user I want the app to propose a price impact rate for each news article ranging from 10 max negative impact to 10 max positive impact so that I can quickly assess the potential impact of the news on cryptocurrency prices
+1,Task,3,CryptoNews,Research and select a reliable cryptocurrency news website or API to connect to
+2,Task,3,Fetch News,Implement a function to fetch the latest news articles from the selected website or API
+3,Task,3,CryptoCat,Create a categorization algorithm to determine the cryptocurrency each news article is related to
+4,Task,3,Sentiment Rate,Develop a sentiment analysis algorithm to propose a price impact rate for each news article
+5,Task,3,DB Setup,Design and set up a database to store the fetched news articles
+6,Task,3,Save News,Implement a data storage function to save the categorized news articles in the database
+7,Task,3,WebTable,Create a simple web application framework to display the news articles in a table format
+8,Task,3,UI Design,Design and develop a user interface for the web app to show the news articles and their proposed price impact rates
+9,Task,3,Realtime Impact,Integrate the categorization and sentiment analysis algorithms into the web app to calculate the price impact rates in realtime
+10,Task,3,AutoUpdate,Implement a feature to automatically update the news articles and their impact rates periodically
+11,Task,3,Test,Test the app thoroughly to ensure accurate categorization and price impact rate calculation
+12,Task,3,Deploy,Deploy the web app to a server or hosting platform for public access
+13,Task,3,Optimize,Monitor the apps performance and make necessary optimizations for scalability and reliability
+14,Task,3,Improve,Gather user feedback and make improvements based on user suggestions and needs
+4,Story,CryptoNews,store news articles,As a user I want the app to store the categorized news articles in a database so that I can access them later and review past news updates
+1,Task,4,CryptoNews,Research and select a reliable cryptocurrency news website or API to connect to
+2,Task,4,Extract News,Implement a data extraction mechanism to retrieve the latest news articles from the chosen source
+3,Task,4,CryptoCat,Develop a categorization algorithm to determine the cryptocurrency each news article is related to
+4,Task,4,Sentiment Rate,Implement a sentiment analysis algorithm to assign a price impact rate to each news article
+5,Task,4,Schema,Design and create a database schema to store the categorized news articles
+6,Task,4,StoreNews,Develop a data storage mechanism to store the news articles in the database
+7,Task,4,WebTable,Create a web application framework to display the stored news articles in a table format
+8,Task,4,News Review,Design and implement a user interface for the web application to allow users to access and review past news updates
+9,Task,4,Search News,Implement a search functionality in the web application to allow users to search for specific news articles based on criteria such as cryptocurrency or date
+10,Task,4,Pagination,Implement a pagination mechanism in the web application to handle large amounts of news articles and improve performance
+11,Task,4,Test,Test the app thoroughly to ensure the correct categorization sentiment analysis and storage of news articles
+12,Task,4,Deploy,Deploy the web application to a server or hosting platform to make it accessible to users
+13,Task,4,Optimize,Monitor the performance and stability of the web application and make necessary optimizations if needed
+14,Task,4,Update,Continuously update and improve the categorization and sentiment analysis algorithms based on user feedback and new developments in the cryptocurrency market
+15,Task,4,Guides,Provide documentation and user guides for the web application to assist users in navigating and utilizing its features
+5,Story,CryptoNews,NewsTable,As a user I want the app to create a simple web app that displays the categorized news articles in a table format so that I can easily browse and read the news on a userfriendly interface
+1,Task,5,CryptoNews,Research and select a reliable cryptocurrency news website or API to connect to
+2,Task,5,Retrieve News,Implement a function to connect to the selected website or API and retrieve the latest news articles
+3,Task,5,CryptoCat,Develop a categorization algorithm to determine the cryptocurrency each news article is related to
+4,Task,5,RateNews,Implement a function to assign a price impact rate to each news article based on its content
+5,Task,5,Schema,Design and create a database schema to store the categorized news articles
+6,Task,5,Store News,Develop a function to store the news articles in the database
+7,Task,5,WebApp,Create a simple web app framework using a suitable programming language and framework eg Python with Flask
+8,Task,5,Table Design,Design and create a table structure to display the categorized news articles in the web app
+9,Task,5,Retrieve News,Implement a function to retrieve the categorized news articles from the database and display them in the table
+10,Task,5,Style,Style the web app to ensure a userfriendly interface with easy browsing and reading of the news articles
+11,Task,5,Web Testing,Test the web app to ensure it functions correctly and displays the news articles accurately
+12,Task,5,Deploy,Deploy the web app to a suitable hosting platform or server for public access
+13,Task,5,MaintainWebApp,Monitor and maintain the web app to ensure it remains functional and uptodate with the latest news articles
+14,Task,5,Improve,Gather user feedback and make improvements to the web app based on user suggestions and needs

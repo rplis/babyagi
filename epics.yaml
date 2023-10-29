@@ -1,0 +1,26 @@
+project:
+  name: CryptoNews
+  description: "Develop the app that will follow the following flow:\n1. connect to\
+    \ cryptocurrency news website via api (try to find best website yourself)\n2.\
+    \ for each new incomming news, categorise it based on\n  a. what cryptocurrency\
+    \ it is related to\n  b. price impact. Propose price impact rate:\n      (minus)\
+    \ -10 is max negative impact,\n      0 is no impact,\n      (plus) 10 is max positive\
+    \ impact\n3. store the news in database\n4. create a simple web app that will\
+    \ display the news in a table"
+  epics:
+  - epic_id: 1
+    name: CryptoLink
+    description: Connect to cryptocurrency news website via API
+    stories: []
+  - epic_id: 2
+    name: CryptoImpact
+    description: Categorize news based on cryptocurrency and price impact
+    stories: []
+  - epic_id: 3
+    name: NewsBase
+    description: Store news in a database
+    stories: []
+  - epic_id: 4
+    name: NewsTable
+    description: Create a simple web app to display news in a table
+    stories: []

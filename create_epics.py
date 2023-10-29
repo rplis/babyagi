@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-This script generates stories for an epic.
+This script sets up the configuration for an artificial general
+intelligence system. It imports necessary libraries and modules,
+sets up environment variables, and loads extensions.
 """
 import os
 
-import yaml
 from dotenv import load_dotenv
 
 from classes import OpenAIAgent, Project
@@ -25,8 +26,10 @@ OPENAI_MAX_TOKENS = int(config["OPENAI_MAX_TOKENS"])
 PROJECT_NAME = config["PROJECT_NAME"]
 PROJECT_DESCRIPTION = config["PROJECT_DESCRIPTION"]
 
+project = Project(PROJECT_NAME, PROJECT_DESCRIPTION)
+
 print_in_color("CONFIGURATION", "BLUE")
-print(f"MODEL   : {OPENAI_MODEL}")
+print(f"LLM   : {OPENAI_MODEL}")
 
 print_in_color("PROJECT", "CYAN")
 print(f"{PROJECT_NAME}: {PROJECT_DESCRIPTION}")
@@ -40,14 +43,6 @@ openai_agent = OpenAIAgent(
 
 print_in_color("PROCESSING", "MAGENTA")
 
-with open("epics.yaml", encoding="utf-8") as f:
-    project = yaml.safe_load(f)
+epic = openai_agent.create_epics(project)
 
-project = Project(
-    name=project["project"]["name"],
-    description=project["project"]["description"],
-    epics=project["project"]["epics"],
-)
-project = openai_agent.create_stories(project)
-
-project.save_to_yaml("stories.yaml")
+epic.save_to_yaml("epics.yaml")

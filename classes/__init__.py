@@ -1,2 +1,2 @@
 """classes/__init__.py"""
-from classes.classes import Epic, OpenAIAgent, Story, Task
+from classes.classes import Epic, OpenAIAgent, Project, Story, Task

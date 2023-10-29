@@ -1,15 +1,15 @@
-LLM_MODEL: gpt-3.5-turbo # gpt-4 # alternatively, gpt-4, text-davinci-003, etc
+OPENAI_MODEL: gpt-3.5-turbo # gpt-4 # alternatively, gpt-4, text-davinci-003, etc
 OPENAI_TEMPERATURE: 0.1
 OPENAI_MAX_TOKENS: 3000
-EPIC_NAME: "CryptoNews"
-EPIC_DESCRIPTION: |
+PROJECT_NAME: "CryptoNews"
+PROJECT_DESCRIPTION: |
   Develop the app that will follow the following flow:
-  1. connect to cryptocurrency news website or api (try to find best website yourself)
-  2. for each new incomming news categorise it based on
+  1. connect to cryptocurrency news website via api (try to find best website yourself)
+  2. for each new incomming news, categorise it based on
     a. what cryptocurrency it is related to
     b. price impact. Propose price impact rate:
-        -10 is max negative impact,
+        (minus) -10 is max negative impact,
         0 is no impact,
-        10 is max positive impact
+        (plus) 10 is max positive impact
   3. store the news in database
   4. create a simple web app that will display the news in a table

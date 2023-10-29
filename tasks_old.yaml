@@ -1,0 +1,1485 @@
+project:
+  name: CryptoNews
+  description: "Develop the app that will follow the following flow:\n1. connect to\
+    \ cryptocurrency news website via api (try to find best website yourself)\n2.\
+    \ for each new incomming news, categorise it based on\n  a. what cryptocurrency\
+    \ it is related to\n  b. price impact. Propose price impact rate:\n      (minus)\
+    \ -10 is max negative impact,\n      0 is no impact,\n      (plus) 10 is max positive\
+    \ impact\n3. store the news in database\n4. create a simple web app that will\
+    \ display the news in a table"
+  epics:
+  - epic_id: 1
+    name: CryptoLink
+    description: Connect to cryptocurrency news website via API
+    stories:
+    - story_id: 1
+      name: research_crypto_news_website
+      description: As a developer I want to research and identify the best cryptocurrency
+        news website that provides an API
+      tasks:
+      - task_id: '1'
+        name: CryptoAPI
+        description: Research cryptocurrency news websites that provide an API
+      - task_id: '2'
+        name: ReliCred
+        description: Evaluate the reliability and credibility of each identified website
+      - task_id: '3'
+        name: API Comparison
+        description: Compare the features and functionality of the APIs offered by
+          different websites
+      - task_id: '4'
+        name: API Analysis
+        description: Analyze the documentation and ease of use of each API
+      - task_id: '5'
+        name: Pricing
+        description: Consider the cost and pricing structure of accessing the API
+          for each website
+      - task_id: '6'
+        name: API Test
+        description: Test the performance and response time of the API for a sample
+          request
+      - task_id: '7'
+        name: Security Review
+        description: Review the security measures and data privacy policies of each
+          website
+      - task_id: '8'
+        name: Consult
+        description: Consult with other developers or industry experts for recommendations
+          on the best cryptocurrency news website with an API
+      - task_id: '9'
+        name: CryptoNews
+        description: Make a final decision on the best cryptocurrency news website
+          to connect to via API
+    - story_id: 2
+      name: ObtainAPIKey
+      description: As a developer I want to obtain an API key from the chosen cryptocurrency
+        news website
+      tasks:
+      - task_id: '1'
+        name: CryptoAPI
+        description: Research and select a cryptocurrency news website that provides
+          an API for developers
+      - task_id: '2'
+        name: Create Account
+        description: Create an account on the chosen cryptocurrency news website
+      - task_id: '3'
+        name: API
+        description: Navigate to the API documentation section of the website
+      - task_id: '4'
+        name: Obtain API Key
+        description: Read the documentation to understand the process of obtaining
+          an API key
+      - task_id: '5'
+        name: Obtain API Key
+        description: Identify the required information and steps to obtain the API
+          key
+      - task_id: '6'
+        name: Generate API Key
+        description: Follow the instructions provided by the website to generate an
+          API key
+      - task_id: '7'
+        name: SecureKey
+        description: Store the API key securely for future use
+      - task_id: '8'
+        name: Test API
+        description: Test the API key by making a sample API request to ensure it
+          is working correctly
+      - task_id: '9'
+        name: ObtainAPIKey
+        description: Document the process of obtaining the API key for future reference
+    - story_id: 3
+      name: ConnectAPI
+      description: As a developer I want to connect to the cryptocurrency news website
+        API using the obtained API key
+      tasks:
+      - task_id: '1'
+        name: Obtain Key
+        description: Obtain API key from the cryptocurrency news website
+      - task_id: '2'
+        name: Create Project
+        description: Create a new project in the development environment
+      - task_id: '3'
+        name: Setup
+        description: Set up the necessary dependencies and libraries for API integration
+      - task_id: '4'
+        name: ConnectAPI
+        description: Write code to connect to the cryptocurrency news website API
+          using the obtained API key
+      - task_id: '5'
+        name: API Test
+        description: Test the API connection to ensure it is working correctly
+      - task_id: '6'
+        name: Error Handling
+        description: Handle any errors or exceptions that may occur during the API
+          connection
+      - task_id: '7'
+        name: CryptoNews
+        description: Retrieve the latest cryptocurrency news articles from the API
+      - task_id: '8'
+        name: ExtractInfo
+        description: Parse the JSON response from the API to extract relevant information
+          such as article titles authors and publication dates
+      - task_id: '9'
+        name: StoreNews
+        description: Store the retrieved news articles in a database or data structure
+          for further processing
+      - task_id: '10'
+        name: Fetch News
+        description: Implement a mechanism to periodically fetch and update the news
+          articles from the API
+      - task_id: '11'
+        name: CryptoNews
+        description: Implement a user interface to display the retrieved cryptocurrency
+          news articles to the end users
+      - task_id: '12'
+        name: Handle Errors
+        description: Add error handling and display appropriate error messages to
+          the users if the API connection fails or returns invalid data
+      - task_id: '13'
+        name: Optimize API
+        description: Optimize the API integration code for performance and efficiency
+      - task_id: '14'
+        name: Integrate
+        description: Document the API integration process and provide clear instructions
+          for future developers to understand and maintain the code
+      - task_id: '15'
+        name: Test API
+        description: Conduct thorough testing and debugging to ensure the API integration
+          is robust and reliable
+      - task_id: '16'
+        name: Deploy
+        description: Deploy the application to a production environment and monitor
+          its performance and stability
+      - task_id: '17'
+        name: CryptoMonitor
+        description: Continuously monitor the cryptocurrency news website API for
+          any updates or changes that may affect the integration
+      - task_id: '18'
+        name: API Support
+        description: Provide ongoing support and maintenance for the API integration
+          addressing any issues or bugs that may arise
+      - task_id: '19'
+        name: CryptoUpdate
+        description: Stay updated with the latest developments in the cryptocurrency
+          news website API and make necessary updates to the integration code as required
+      - task_id: '20'
+        name: CollabSupport
+        description: Collaborate with the cryptocurrency news website API provider
+          to resolve any technical issues or obtain additional support if needed
+    - story_id: 4
+      name: RetrieveNewsArticles
+      description: As a developer I want to retrieve the latest news articles from
+        the cryptocurrency news website API
+      tasks:
+      - task_id: '1'
+        name: CryptoAPI
+        description: Research and identify the cryptocurrency news website API to
+          connect to
+      - task_id: '2'
+        name: Obtain Credentials
+        description: Obtain API credentials or access key from the cryptocurrency
+          news website
+      - task_id: '3'
+        name: Setup
+        description: Set up a development environment to work with the API eg install
+          necessary libraries tools or frameworks
+      - task_id: '4'
+        name: Create
+        description: Create a new project or module in the development environment
+          for the API integration
+      - task_id: '5'
+        name: ConnectAPI
+        description: Write code to establish a connection to the cryptocurrency news
+          website API using the obtained credentials
+      - task_id: '6'
+        name: getLatestNews
+        description: Implement a function or method to retrieve the latest news articles
+          from the API
+      - task_id: '7'
+        name: TestAPI
+        description: Test the API connection and news retrieval functionality to ensure
+          it is working correctly
+      - task_id: '8'
+        name: Error Handling
+        description: Handle any errors or exceptions that may occur during the API
+          integration process
+      - task_id: '9'
+        name: ExtractInfo
+        description: Parse the retrieved news articles data to extract relevant information
+          eg title description publication date
+      - task_id: '10'
+        name: StoreData
+        description: Store the extracted news articles data in a suitable data structure
+          or format eg list database file
+      - task_id: '11'
+        name: Refine News
+        description: Implement any necessary data processing or filtering logic to
+          refine the retrieved news articles
+      - task_id: '12'
+        name: NewsDisplay
+        description: Design and implement a user interface or commandline interface
+          to display the retrieved news articles to the user
+      - task_id: '13'
+        name: UI Testing
+        description: Test the user interface or commandline interface to ensure it
+          is displaying the news articles correctly
+      - task_id: '14'
+        name: Interact
+        description: Handle any user interactions or inputs eg scrolling selecting
+          specific articles in the user interface
+      - task_id: '15'
+        name: Enhancements
+        description: Implement any additional features or enhancements requested by
+          the user eg search functionality bookmarking articles
+      - task_id: '16'
+        name: Optimize API
+        description: Optimize the API integration code for performance and efficiency
+          if necessary
+      - task_id: '17'
+        name: API Setup
+        description: Document the API integration process including any setup instructions
+          or configuration details
+      - task_id: '18'
+        name: Test
+        description: Write unit tests to verify the functionality of the API integration
+          code
+      - task_id: '19'
+        name: Integration
+        description: Conduct integration testing with other components or systems
+          if applicable
+      - task_id: '20'
+        name: Deploy API
+        description: Prepare the API integration code for deployment to a production
+          environment
+      - task_id: '21'
+        name: Deploy
+        description: Deploy the API integration code to a production environment and
+          ensure it is working as expected
+      - task_id: '22'
+        name: API-Monitor
+        description: Monitor the API integration for any errors or issues and provide
+          necessary maintenance or support
+    - story_id: 5
+      name: Extract Information
+      description: As a developer I want to extract the relevant information from
+        each news article such as the cryptocurrency it is related to and the impact
+        rate
+      tasks:
+      - task_id: '1'
+        name: CryptoNews
+        description: Research and select a cryptocurrency news website that provides
+          an API for accessing news articles
+      - task_id: '2'
+        name: Obtain Credentials
+        description: Obtain API access credentials from the selected cryptocurrency
+          news website
+      - task_id: '3'
+        name: Setup
+        description: Set up a development environment with the necessary tools and
+          libraries to connect to the API
+      - task_id: '4'
+        name: CryptoConnect
+        description: Write code to authenticate and establish a connection to the
+          cryptocurrency news websites API
+      - task_id: '5'
+        name: GetNews
+        description: Retrieve a list of news articles from the API
+      - task_id: '6'
+        name: Extract Info
+        description: Extract the relevant information from each news article such
+          as the cryptocurrency it is related to and the impact rate
+      - task_id: '7'
+        name: Categorize News
+        description: Implement a method to filter and categorize the news articles
+          based on the extracted information
+      - task_id: '8'
+        name: Store
+        description: Store the extracted information in a database or data structure
+          for further analysis or use
+      - task_id: '9'
+        name: LogErrors
+        description: Implement error handling and logging to handle any issues that
+          may arise during the API connection and data extraction process
+      - task_id: '10'
+        name: API Test
+        description: Test the API connection and data extraction functionality to
+          ensure it is working as expected
+      - task_id: '11'
+        name: Optimize
+        description: Optimize the code for performance and efficiency if necessary
+      - task_id: '12'
+        name: API Doc
+        description: Document the API connection and data extraction process for future
+          reference and maintenance
+      - task_id: '13'
+        name: Extract
+        description: Provide documentation or instructions on how to use the developed
+          code to extract relevant information from cryptocurrency news articles
+      - task_id: '14'
+        name: CryptoWatch
+        description: Continuously monitor the cryptocurrency news websites API for
+          any updates or changes that may affect the codes functionality
+      - task_id: '15'
+        name: UpdateAPI
+        description: Regularly review and update the code to adapt to any changes
+          in the cryptocurrency news websites API or data structure
+    - story_id: 6
+      name: categorize news articles
+      description: As a developer I want to categorize each news article based on
+        the extracted information
+      tasks:
+      - task_id: '1'
+        name: CryptoAPI
+        description: Research available cryptocurrency news websites that provide
+          APIs
+      - task_id: '2'
+        name: Categorize
+        description: Identify the required information to categorize each news article
+          eg title content tags
+      - task_id: '3'
+        name: Categorize
+        description: Determine the categories or tags to be used for categorization
+          eg Bitcoin Ethereum Blockchain
+      - task_id: '4'
+        name: Categorize
+        description: Design a data model or schema to store the categorized news articles
+      - task_id: '5'
+        name: Setup
+        description: Set up a development environment with the necessary tools and
+          libraries to connect to the chosen cryptocurrency news website API
+      - task_id: '6'
+        name: fetchNews
+        description: Implement a function or method to fetch news articles from the
+          API
+      - task_id: '7'
+        name: ExtractInfo
+        description: Extract the required information eg title content tags from each
+          news article
+      - task_id: '8'
+        name: Categorize News
+        description: Categorize each news article based on the extracted information
+          and the predefined categories or tags
+      - task_id: '9'
+        name: Categorize
+        description: Store the categorized news articles in the chosen data model
+          or schema
+      - task_id: '10'
+        name: Categorize News
+        description: Implement a user interface or API endpoint to display or retrieve
+          the categorized news articles
+      - task_id: '11'
+        name: Categorize
+        description: Test the categorization functionality with sample news articles
+          and verify the accuracy of the categorization
+      - task_id: '12'
+        name: Error Handling
+        description: Handle any errors or exceptions that may occur during the API
+          connection data extraction or categorization process
+      - task_id: '13'
+        name: Optimize Categorization
+        description: Optimize the categorization algorithm or process for better performance
+          or accuracy if needed
+      - task_id: '14'
+        name: APIExtraction
+        description: Document the API connection process data extraction process categorization
+          algorithm and any other relevant information for future reference
+      - task_id: '15'
+        name: Categorize
+        description: Provide documentation or guidelines for other developers on how
+          to use the categorization functionality in their applications
+    - story_id: 7
+      name: store_news_articles
+      description: As a developer I want to store the categorized news articles in
+        a database for future use
+      tasks:
+      - task_id: '1'
+        name: CryptoNews
+        description: Research and select a suitable cryptocurrency news website that
+          provides an API for accessing news articles
+      - task_id: '2'
+        name: Obtain Credentials
+        description: Obtain API access credentials from the selected cryptocurrency
+          news website
+      - task_id: '3'
+        name: Categorize
+        description: Set up a database to store the categorized news articles
+      - task_id: '4'
+        name: Schema
+        description: Design the database schema to accommodate the required fields
+          for storing news articles
+      - task_id: '5'
+        name: ConnectAPI
+        description: Create a script or program to connect to the cryptocurrency news
+          websites API using the obtained credentials
+      - task_id: '6'
+        name: Retrieve News
+        description: Implement functionality to retrieve news articles from the API
+          and store them in the database
+      - task_id: '7'
+        name: Categorize
+        description: Categorize the news articles based on their content or any available
+          metadata
+      - task_id: '8'
+        name: Reliability
+        description: Implement error handling and logging mechanisms to ensure the
+          reliability of the data retrieval and storage process
+      - task_id: '9'
+        name: Data Test
+        description: Test the data retrieval and storage process to ensure that news
+          articles are being successfully stored in the database
+      - task_id: '10'
+        name: Fetch News
+        description: Implement a mechanism to periodically fetch and store new news
+          articles from the API to keep the database up to date
+      - task_id: '11'
+        name: Search News
+        description: Implement a user interface or API endpoints to allow users to
+          search and retrieve the stored news articles based on their categories or
+          other criteria
+      - task_id: '12'
+        name: Secure
+        description: Implement security measures to protect the stored news articles
+          and prevent unauthorized access
+      - task_id: '13'
+        name: Document
+        description: Document the entire process including the API documentation database
+          schema and any necessary setup instructions for future use and maintenance
+    - story_id: 8
+      name: ErrorHandling
+      description: As a developer I want to handle any errors or exceptions that may
+        occur during the API connection and data retrieval process
+      tasks:
+      - task_id: '1'
+        name: API Errors
+        description: Research the API documentation to understand the possible errors
+          and exceptions that can occur during the connection and data retrieval process
+      - task_id: '2'
+        name: ErrorHandling
+        description: Implement error handling mechanisms such as trycatch blocks to
+          handle any exceptions that may occur during the API connection and data
+          retrieval process
+      - task_id: '3'
+        name: Notify
+        description: Create error messages or notifications to inform the user about
+          the specific error that occurred and provide guidance on how to resolve
+          it
+      - task_id: '4'
+        name: Error Testing
+        description: Test the error handling functionality by intentionally causing
+          errors during the API connection and data retrieval process
+      - task_id: '5'
+        name: Analyze Logs
+        description: Review and analyze the error logs or error messages to identify
+          any patterns or recurring issues that need to be addressed
+      - task_id: '6'
+        name: ErrorLogging
+        description: Implement appropriate error logging mechanisms to capture and
+          store detailed information about the errors that occur during the API connection
+          and data retrieval process
+      - task_id: '7'
+        name: Error Monitoring
+        description: Monitor the error logs regularly to identify any new or recurring
+          errors and take necessary actions to resolve them
+      - task_id: '8'
+        name: Improve
+        description: Continuously improve the error handling mechanisms based on the
+          feedback and suggestions from users and stakeholders
+      - task_id: '9'
+        name: Error Handling
+        description: Document the error handling process and provide guidelines for
+          future developers to follow when working with the API connection and data
+          retrieval functionality
+      - task_id: '10'
+        name: API Support
+        description: Provide support and assistance to users who encounter errors
+          or exceptions during the API connection and data retrieval process
+  - epic_id: 2
+    name: CryptoImpact
+    description: Categorize news based on cryptocurrency and price impact
+    stories:
+    - story_id: 1
+      name: connect_news_website
+      description: As a user I want to be able to connect to a cryptocurrency news
+        website via API so that I can retrieve the latest news
+      tasks:
+      - task_id: '1'
+        name: CryptoAPI
+        description: Research available cryptocurrency news websites that provide
+          API access
+      - task_id: '2'
+        name: CryptoNews
+        description: Identify the specific API endpoint that provides the latest news
+          from the chosen cryptocurrency news website
+      - task_id: '3'
+        name: AuthMethod
+        description: Determine the required authentication method if any to access
+          the API
+      - task_id: '4'
+        name: ConnectAPI
+        description: Create a connection module to establish a connection with the
+          cryptocurrency news websites API
+      - task_id: '5'
+        name: getLatestNews
+        description: Implement a function to retrieve the latest news from the API
+          endpoint
+      - task_id: '6'
+        name: Extract News
+        description: Parse the retrieved news data to extract relevant information
+          such as title description and publication date
+      - task_id: '7'
+        name: StoreData
+        description: Store the extracted news data in a suitable data structure for
+          further processing
+      - task_id: '8'
+        name: FetchNews
+        description: Implement a mechanism to periodically fetch and update the latest
+          news data from the API
+      - task_id: '9'
+        name: NewsUI
+        description: Design a user interface to display the retrieved news data in
+          a userfriendly manner
+      - task_id: '10'
+        name: News Search
+        description: Implement a search functionality to allow users to search for
+          specific news articles based on keywords or categories
+      - task_id: '11'
+        name: CryptoFilter
+        description: Implement a filtering mechanism to categorize news articles based
+          on their impact on cryptocurrency prices
+      - task_id: '12'
+        name: CryptoAlert
+        description: Develop a notification system to alert users about important
+          news articles that may have a significant impact on cryptocurrency prices
+      - task_id: '13'
+        name: API Test
+        description: Test the API connection and ensure the retrieval of the latest
+          news is functioning correctly
+      - task_id: '14'
+        name: Test News
+        description: Conduct user testing to gather feedback on the usability and
+          effectiveness of the news retrieval feature
+      - task_id: '15'
+        name: Optimize News
+        description: Refine and optimize the news retrieval feature based on user
+          feedback and performance considerations
+    - story_id: 2
+      name: Categorize Cryptocurrency
+      description: As a user I want the app to categorize each news article based
+        on the cryptocurrency it is related to so that I can easily find news about
+        specific cryptocurrencies
+      tasks:
+      - task_id: '1'
+        name: CryptoClassify
+        description: Develop a machine learning model to classify news articles based
+          on the cryptocurrency they are related to
+      - task_id: '2'
+        name: CryptoCats
+        description: Create a database of cryptocurrencies and their corresponding
+          categories
+      - task_id: '3'
+        name: ScrapeNews
+        description: Implement a web scraping mechanism to gather news articles from
+          various sources
+      - task_id: '4'
+        name: Preprocess News
+        description: Preprocess the news articles by removing stop words punctuation
+          and converting text to lowercase
+      - task_id: '5'
+        name: CryptoClassify
+        description: Use the machine learning model to classify each news article
+          into the appropriate cryptocurrency category
+      - task_id: '6'
+        name: Categorize
+        description: Store the categorized news articles in a database for easy retrieval
+      - task_id: '7'
+        name: CryptoSearch
+        description: Implement a search functionality to allow users to find news
+          articles about specific cryptocurrencies
+      - task_id: '8'
+        name: NewsView
+        description: Design a userfriendly interface to display the categorized news
+          articles and search results
+      - task_id: '9'
+        name: CryptoAlert
+        description: Implement a notification system to alert users about new news
+          articles in their preferred cryptocurrency categories
+      - task_id: '10'
+        name: Update Model
+        description: Continuously update the machine learning model with new data
+          to improve classification accuracy
+    - story_id: 3
+      name: PriceImpactRate
+      description: As a user I want the app to assign a price impact rate to each
+        news article ranging from 10 max negative impact to 10 max positive impact
+        so that I can quickly assess the potential impact of the news on cryptocurrency
+        prices
+      tasks:
+      - task_id: '1'
+        name: CryptoFactors
+        description: Research and identify key factors that can impact cryptocurrency
+          prices
+      - task_id: '2'
+        name: NewsImpact
+        description: Develop an algorithm to analyze news articles and assign a price
+          impact rate based on the identified factors
+      - task_id: '3'
+        name: NewsDB
+        description: Create a database to store news articles and their corresponding
+          price impact rates
+      - task_id: '4'
+        name: ScrapeNews
+        description: Implement a web scraping mechanism to automatically fetch news
+          articles from various sources
+      - task_id: '5'
+        name: NewsUI
+        description: Design a user interface to display news articles along with their
+          assigned price impact rates
+      - task_id: '6'
+        name: PriceFilter
+        description: Allow users to filter news articles based on their price impact
+          rates
+      - task_id: '7'
+        name: SortImpact
+        description: Provide a feature to sort news articles based on their price
+          impact rates
+      - task_id: '8'
+        name: Notify
+        description: Implement a notification system to alert users about highimpact
+          news articles
+      - task_id: '9'
+        name: Update Rates
+        description: Conduct regular updates and maintenance to ensure the accuracy
+          of the price impact rates assigned to news articles
+      - task_id: '10'
+        name: Improve Rates
+        description: Gather user feedback and continuously improve the accuracy and
+          relevance of the price impact rates assigned to news articles
+    - story_id: 4
+      name: store_articles
+      description: As a user I want the app to store the categorized news articles
+        in a database so that I can access them later
+      tasks:
+      - task_id: '1'
+        name: Categorize
+        description: Design the database schema to store categorized news articles
+      - task_id: '2'
+        name: CreateTable
+        description: Create a table in the database to store the categorized news
+          articles
+      - task_id: '3'
+        name: insertNews
+        description: Implement a function to insert a categorized news article into
+          the database
+      - task_id: '4'
+        name: getNews
+        description: Implement a function to retrieve a categorized news article from
+          the database
+      - task_id: '5'
+        name: update category
+        description: Implement a function to update the category of a news article
+          in the database
+      - task_id: '6'
+        name: deleteArticle
+        description: Implement a function to delete a categorized news article from
+          the database
+      - task_id: '7'
+        name: insert news
+        description: Create an API endpoint to insert a categorized news article into
+          the database
+      - task_id: '8'
+        name: GetNews
+        description: Create an API endpoint to retrieve a categorized news article
+          from the database
+      - task_id: '9'
+        name: Update Category
+        description: Create an API endpoint to update the category of a news article
+          in the database
+      - task_id: '10'
+        name: deleteNews
+        description: Create an API endpoint to delete a categorized news article from
+          the database
+    - story_id: 5
+      name: DisplayNewsTable
+      description: As a user I want the web app to display the categorized news articles
+        in a table so that I can easily browse through them
+      tasks:
+      - task_id: '1'
+        name: Layout Design
+        description: Design the layout of the web app to include a table for displaying
+          the categorized news articles
+      - task_id: '2'
+        name: CryptoNews
+        description: Implement a backend function to fetch and categorize news articles
+          based on cryptocurrency and price impact
+      - task_id: '3'
+        name: Categorize
+        description: Create a database schema to store the categorized news articles
+      - task_id: '4'
+        name: RetrieveNews
+        description: Develop an API endpoint to retrieve the categorized news articles
+          from the database
+      - task_id: '5'
+        name: DisplayNews
+        description: Implement the frontend logic to call the API endpoint and display
+          the categorized news articles in the table
+      - task_id: '6'
+        name: Paginate
+        description: Add pagination functionality to the table to allow users to browse
+          through multiple pages of news articles
+      - task_id: '7'
+        name: Sort News
+        description: Implement sorting functionality in the table to allow users to
+          sort the news articles based on different criteria eg date impact
+      - task_id: '8'
+        name: Search News
+        description: Add search functionality to the table to allow users to search
+          for specific news articles based on keywords or categories
+      - task_id: '9'
+        name: MarkRead
+        description: Implement a feature to mark news articles as readunread to help
+          users keep track of their browsing progress
+      - task_id: '10'
+        name: Bookmark
+        description: Add a feature to allow users to save news articles to their favorites
+          or bookmark them for later reference
+      - task_id: '11'
+        name: Responsive Design
+        description: Implement a responsive design for the web app to ensure optimal
+          viewing experience on different devices and screen sizes
+      - task_id: '12'
+        name: Test
+        description: Conduct user testing and gather feedback to improve the usability
+          and user experience of the web app
+      - task_id: '13'
+        name: Optimize
+        description: Optimize the performance of the web app to ensure fast loading
+          and smooth browsing experience for users
+      - task_id: '14'
+        name: ErrorHandling
+        description: Implement error handling and display appropriate error messages
+          to users in case of any issues with fetching or displaying the news articles
+      - task_id: '15'
+        name: Deploy
+        description: Deploy the web app to a production environment and ensure it
+          is accessible to users
+    - story_id: 6
+      name: FilterSearch
+      description: As a user I want the web app to provide filters or search functionality
+        so that I can find news articles based on specific cryptocurrencies or price
+        impact rates
+      tasks:
+      - task_id: '1'
+        name: Filter News
+        description: Create a search bar on the web app where users can enter specific
+          cryptocurrencies or price impact rates to filter news articles
+      - task_id: '2'
+        name: CryptoFilter
+        description: Implement a dropdown menu with a list of popular cryptocurrencies
+          for users to select from and filter news articles accordingly
+      - task_id: '3'
+        name: SortNews
+        description: Develop a feature that allows users to sort news articles based
+          on the price impact rates such as highest to lowest or lowest to highest
+      - task_id: '4'
+        name: Save Filters
+        description: Provide a way for users to save their search filters or preferences
+          so that they can easily access them in future visits to the web app
+      - task_id: '5'
+        name: Reset
+        description: Include a clear button or option that allows users to reset the
+          search filters and view all news articles again
+      - task_id: '6'
+        name: NewsCount
+        description: Implement a feature that displays the number of news articles
+          found based on the applied filters providing users with an indication of
+          the search results
+      - task_id: '7'
+        name: Bookmark
+        description: Add a feature that allows users to bookmark or save specific
+          news articles for later reference
+      - task_id: '8'
+        name: Share
+        description: Provide a way for users to share news articles with others through
+          social media or email
+      - task_id: '9'
+        name: CryptoNews
+        description: Implement a feature that suggests related news articles based
+          on the selected cryptocurrency or price impact rate
+      - task_id: '10'
+        name: Rate
+        description: Include a feature that allows users to provide feedback on the
+          relevance or accuracy of the news articles displayed helping to improve
+          the filtering and search functionality over time
+  - epic_id: 3
+    name: NewsBase
+    description: Store news in a database
+    stories:
+    - story_id: 1
+      name: cryptocurrency news schema
+      description: As a developer I want to create a database schema to store cryptocurrency
+        news
+      tasks:
+      - task_id: '1'
+        name: DBSchemas
+        description: Research existing database schemas for storing news articles
+      - task_id: '2'
+        name: CryptoFields
+        description: Define the required fields for storing cryptocurrency news articles
+          in the database schema
+      - task_id: '3'
+        name: CryptoNews
+        description: Design the database schema for storing cryptocurrency news articles
+      - task_id: '4'
+        name: CreateTables
+        description: Create the necessary tables in the database based on the designed
+          schema
+      - task_id: '5'
+        name: Relate
+        description: Implement the necessary relationships between tables in the database
+          schema
+      - task_id: '6'
+        name: Define Schema
+        description: Define the data types and constraints for each field in the database
+          schema
+      - task_id: '7'
+        name: Optimize Index
+        description: Create an index on the relevant fields to optimize search performance
+      - task_id: '8'
+        name: NewsDB
+        description: Implement a mechanism to store and retrieve news articles from
+          the database
+      - task_id: '9'
+        name: Update/Delete News
+        description: Implement a mechanism to update and delete news articles in the
+          database
+      - task_id: '10'
+        name: SchemaTest
+        description: Test the database schema and functionality to ensure it meets
+          the requirements
+      - task_id: '11'
+        name: Optimize
+        description: Optimize the database schema and queries for performance if necessary
+      - task_id: '12'
+        name: Schema
+        description: Document the database schema and provide instructions for its
+          usage
+    - story_id: 2
+      name: ViewNewsTable
+      description: As a user I want to be able to view the stored news in a table
+        format on the web app
+      tasks:
+      - task_id: '1'
+        name: newsDB
+        description: Design the database schema for storing news articles
+      - task_id: '2'
+        name: CreateTable
+        description: Create a table in the database to store news articles
+      - task_id: '3'
+        name: Display News
+        description: Implement a web page to display the stored news articles in a
+          table format
+      - task_id: '4'
+        name: Populate News
+        description: Retrieve the news articles from the database and populate the
+          table on the web page
+      - task_id: '5'
+        name: paginate
+        description: Add pagination functionality to the table to limit the number
+          of articles displayed per page
+      - task_id: '6'
+        name: Sort
+        description: Implement sorting functionality on the table to allow users to
+          sort the articles by different criteria eg date title
+      - task_id: '7'
+        name: Search
+        description: Add search functionality to the table to allow users to search
+          for specific articles based on keywords or filters
+      - task_id: '8'
+        name: Responsive Design
+        description: Implement a responsive design for the web page to ensure optimal
+          viewing experience on different devices
+      - task_id: '9'
+        name: HandleDBError
+        description: Add error handling to handle cases where the database connection
+          or query fails
+      - task_id: '10'
+        name: VerifyNewsTable
+        description: Test the web page to ensure that the stored news articles are
+          displayed correctly in the table format
+      - task_id: '11'
+        name: Optimize
+        description: Optimize the performance of the web page by implementing caching
+          mechanisms or database optimizations if necessary
+      - task_id: '12'
+        name: Deploy
+        description: Document the implementation details and provide instructions
+          for deploying the web app to a production environment
+    - story_id: 3
+      name: StoreNews
+      description: As a developer I want to create an API endpoint to receive incoming
+        news and store it in the database
+      tasks:
+      - task_id: '1'
+        name: newsDB
+        description: Design the database schema to store news articles
+      - task_id: '2'
+        name: API News
+        description: Create a REST API endpoint to receive incoming news articles
+      - task_id: '3'
+        name: Validate News
+        description: Implement validation for the incoming news data to ensure it
+          meets the required format and data types
+      - task_id: '4'
+        name: Test
+        description: Write unit tests to verify the functionality of the API endpoint
+      - task_id: '5'
+        name: StoreNews
+        description: Implement the logic to store the news articles in the database
+      - task_id: '6'
+        name: Error Handling
+        description: Handle any errors or exceptions that may occur during the storage
+          process
+      - task_id: '7'
+        name: Test Storage
+        description: Write integration tests to ensure the news articles are being
+          stored correctly in the database
+      - task_id: '8'
+        name: AuthAPI
+        description: Implement authentication and authorization for the API endpoint
+          to ensure only authorized users can access it
+      - task_id: '9'
+        name: limit
+        description: Implement rate limiting to prevent abuse of the API endpoint
+      - task_id: '10'
+        name: log
+        description: Implement logging to track any errors or issues with the API
+          endpoint
+      - task_id: '11'
+        name: API Doc
+        description: Document the API endpoint including its input parameters expected
+          response and any error codes
+      - task_id: '12'
+        name: Deploy
+        description: Deploy the API endpoint to a production environment
+      - task_id: '13'
+        name: MonitorAPI
+        description: Monitor the API endpoint for performance and scalability
+      - task_id: '14'
+        name: Backup
+        description: Implement backup and recovery procedures for the database to
+          ensure data integrity
+      - task_id: '15'
+        name: Retention
+        description: Implement data retention policies to manage the storage of news
+          articles in the database
+    - story_id: 4
+      name: categorize_news
+      description: As a developer I want to categorize each news based on the cryptocurrency
+        it is related to
+      tasks:
+      - task_id: '1'
+        name: NewsDB
+        description: Create a database schema to store news articles
+      - task_id: '2'
+        name: AddTableNewsCategories
+        description: Add a table to the database schema to store news categories
+      - task_id: '3'
+        name: NewsCat
+        description: Create an API endpoint to receive news articles and their corresponding
+          categories
+      - task_id: '4'
+        name: Submit News
+        description: Implement a form on the website for users to submit news articles
+          and select their category
+      - task_id: '5'
+        name: Validate
+        description: Validate the submitted news articles and categories before storing
+          them in the database
+      - task_id: '6'
+        name: Search News
+        description: Implement a search functionality to allow users to search for
+          news articles based on their category
+      - task_id: '7'
+        name: AdminDash
+        description: Create a dashboard for administrators to manage and categorize
+          news articles
+      - task_id: '8'
+        name: AutoCategorize
+        description: Implement a feature to automatically categorize news articles
+          based on their content using natural language processing
+      - task_id: '9'
+        name: SecureAccess
+        description: Add authentication and authorization to the API endpoint and
+          dashboard to ensure only authorized users can access and manage news articles
+      - task_id: '10'
+        name: Subscribe
+        description: Implement a feature to allow users to subscribe to specific news
+          categories and receive notifications when new articles are added
+      - task_id: '11'
+        name: NewsRec
+        description: Implement a feature to recommend related news articles based
+          on the users selected category
+      - task_id: '12'
+        name: Popularity Tracker
+        description: Implement a feature to track and display the popularity of each
+          news category based on the number of articles and user interactions
+      - task_id: '13'
+        name: RateNews
+        description: Implement a feature to allow users to rate and provide feedback
+          on news articles and categories
+      - task_id: '14'
+        name: ShareNews
+        description: Implement a feature to allow users to share news articles and
+          categories on social media platforms
+      - task_id: '15'
+        name: Bookmark
+        description: Implement a feature to allow users to bookmark and save their
+          favorite news articles and categories for later reference
+    - story_id: 5
+      name: categorizeNews
+      description: As a developer I want to categorize each news based on the price
+        impact it may have
+      tasks:
+      - task_id: '1'
+        name: Price Categories
+        description: Research and identify different categories for news based on
+          price impact
+      - task_id: '2'
+        name: NewsDB
+        description: Create a database table to store news articles
+      - task_id: '3'
+        name: Add Category
+        description: Add a column in the database table to store the category of each
+          news article
+      - task_id: '4'
+        name: Select Category
+        description: Implement a form or input field in the application to allow users
+          to select the category for each news article
+      - task_id: '5'
+        name: Sanitize Category
+        description: Validate and sanitize the user input for the category field to
+          prevent any malicious data
+      - task_id: '6'
+        name: PriceNews
+        description: Implement a feature to display news articles categorized by their
+          price impact on the applications frontend
+      - task_id: '7'
+        name: GetNewsByCategory
+        description: Create an API endpoint to retrieve news articles based on their
+          category
+      - task_id: '8'
+        name: Search News
+        description: Implement a search functionality to allow users to search for
+          news articles by category
+      - task_id: '9'
+        name: Update Category
+        description: Implement a feature to allow users to update the category of
+          a news article
+      - task_id: '10'
+        name: Delete News
+        description: Implement a feature to allow users to delete a news article from
+          the database
+      - task_id: '11'
+        name: Add News
+        description: Implement a feature to allow users to add new news articles with
+          their respective category
+      - task_id: '12'
+        name: Categorize
+        description: Write unit tests to ensure the correct categorization of news
+          articles
+      - task_id: '13'
+        name: Test
+        description: Write integration tests to ensure the proper functioning of the
+          news categorization feature
+      - task_id: '14'
+        name: Categorize
+        description: Document the process of categorizing news articles based on price
+          impact for future reference
+    - story_id: 6
+      name: priceimpactrate
+      description: As a developer I want to assign a price impact rate to each news
+        ranging from 10 to 10
+      tasks:
+      - task_id: '1'
+        name: NewsDB
+        description: Create a database table to store news articles
+      - task_id: '2'
+        name: AddColumn
+        description: Add a column to the news table to store the price impact rate
+      - task_id: '3'
+        name: UI Price Impact
+        description: Modify the user interface to allow developers to assign a price
+          impact rate to each news article
+      - task_id: '4'
+        name: PriceValidate
+        description: Validate the price impact rate input to ensure it falls within
+          the range of 10 to 10
+      - task_id: '5'
+        name: Update Rate
+        description: Update the database table with the assigned price impact rate
+          for each news article
+      - task_id: '6'
+        name: PriceRate
+        description: Display the price impact rate for each news article in the user
+          interface
+      - task_id: '7'
+        name: FilterNews
+        description: Implement a search functionality to filter news articles based
+          on their price impact rate
+      - task_id: '8'
+        name: GetNewsByImpactRate
+        description: Create an API endpoint to retrieve news articles with a specific
+          price impact rate
+      - task_id: '9'
+        name: SortNews
+        description: Implement a sorting functionality to order news articles based
+          on their price impact rate
+      - task_id: '10'
+        name: TestPriceImpact
+        description: Add unit tests to verify the correct assignment and retrieval
+          of price impact rates for news articles
+    - story_id: 7
+      name: RealtimeNewsUpdate
+      description: As a developer I want to ensure that the stored news is updated
+        in realtime as new news comes in
+      tasks:
+      - task_id: '1'
+        name: DBMS
+        description: Research and select a suitable database management system for
+          storing news
+      - task_id: '2'
+        name: NewsDB
+        description: Design and create a database schema to store news articles
+      - task_id: '3'
+        name: Realtime News
+        description: Implement a mechanism to fetch news articles in realtime from
+          external sources
+      - task_id: '4'
+        name: Extract News
+        description: Develop a script or program to parse and extract relevant information
+          from the fetched news articles
+      - task_id: '5'
+        name: Store News
+        description: Create a mechanism to store the extracted news articles in the
+          database
+      - task_id: '6'
+        name: NewsMonitor
+        description: Implement a mechanism to continuously monitor for new news articles
+      - task_id: '7'
+        name: Realtime News Update
+        description: Develop a script or program to automatically update the stored
+          news articles in realtime as new news comes in
+      - task_id: '8'
+        name: Realtime Testing
+        description: Test and debug the realtime update functionality to ensure its
+          accuracy and reliability
+      - task_id: '9'
+        name: ErrorLog
+        description: Implement error handling and logging mechanisms to handle any
+          issues that may arise during the realtime update process
+      - task_id: '10'
+        name: Optimize Updates
+        description: Optimize the realtime update process to ensure efficient and
+          timely updates of the stored news articles
+      - task_id: '11'
+        name: Update
+        description: Document the realtime update process including any configuration
+          settings or dependencies
+      - task_id: '12'
+        name: UpdateDocs
+        description: Provide documentation and instructions for other developers on
+          how to use and maintain the realtime update functionality
+    - story_id: 8
+      name: Error Handling
+      description: As a developer I want to handle any errors that may occur during
+        the process of storing news in the database
+      tasks:
+      - task_id: '1'
+        name: Error Check
+        description: Identify potential errors that may occur during the process of
+          storing news in the database
+      - task_id: '2'
+        name: Error Scenarios
+        description: Create a list of possible error scenarios such as database connection
+          failure data validation errors or duplicate entry errors
+      - task_id: '3'
+        name: ErrorHandling
+        description: Implement error handling mechanisms to catch and handle these
+          potential errors
+      - task_id: '4'
+        name: Error Messaging
+        description: Develop error messages or notifications to provide meaningful
+          feedback to the user in case of errors
+      - task_id: '5'
+        name: Error Testing
+        description: Test the error handling functionality by intentionally triggering
+          different error scenarios and verifying that the system responds appropriately
+      - task_id: '6'
+        name: ErrorHandling
+        description: Document the error handling process and provide instructions
+          for future developers on how to handle errors during the process of storing
+          news in the database
+  - epic_id: 4
+    name: NewsTable
+    description: Create a simple web app to display news in a table
+    stories:
+    - story_id: 1
+      name: ViewNewsTable
+      description: As a user I want to be able to view the news articles in a table
+        format
+      tasks:
+      - task_id: '1'
+        name: Layout
+        description: Design the layout of the web app to include a table for displaying
+          news articles
+      - task_id: '2'
+        name: NewsDB
+        description: Create a database schema to store news articles with fields such
+          as title author date and content
+      - task_id: '3'
+        name: FetchNews
+        description: Implement a backend API to fetch news articles from the database
+      - task_id: '4'
+        name: DisplayNews
+        description: Create a frontend component to display the fetched news articles
+          in a table format
+      - task_id: '5'
+        name: paginate
+        description: Add pagination functionality to the table to limit the number
+          of articles displayed per page
+      - task_id: '6'
+        name: Sort
+        description: Implement sorting functionality for the table to allow users
+          to sort articles by title author or date
+      - task_id: '7'
+        name: Add Search
+        description: Add a search bar to the table to allow users to search for specific
+          articles based on keywords
+      - task_id: '8'
+        name: ViewNews
+        description: Implement a feature to allow users to click on a news article
+          in the table to view its full content
+      - task_id: '9'
+        name: Add News
+        description: Add a feature to allow users to add new news articles to the
+          database through a form
+      - task_id: '10'
+        name: Secure
+        description: Implement authentication and authorization to restrict access
+          to the web app and its features
+      - task_id: '11'
+        name: Validate
+        description: Add error handling and validation to ensure data integrity and
+          provide a smooth user experience
+      - task_id: '12'
+        name: Test
+        description: Test the web app thoroughly to ensure all features are working
+          correctly
+      - task_id: '13'
+        name: Deploy
+        description: Deploy the web app to a production environment for users to access
+          and view news articles
+      - task_id: '14'
+        name: Optimize Loading
+        description: Monitor the performance of the web app and optimize as necessary
+          to ensure fast and efficient loading of news articles
+      - task_id: '15'
+        name: Iterate
+        description: Continuously gather user feedback and make improvements to the
+          web app based on user needs and preferences
+    - story_id: 2
+      name: NewsTableInfo
+      description: As a user I want to be able to see the title date and category
+        of each news article in the table
+      tasks:
+      - task_id: '1'
+        name: Layout Design
+        description: Design the layout of the web app to include a table structure
+      - task_id: '2'
+        name: NewsDB
+        description: Create a database schema to store news articles with fields for
+          title date and category
+      - task_id: '3'
+        name: fetchNews
+        description: Implement a backend API endpoint to fetch news articles from
+          the database
+      - task_id: '4'
+        name: DisplayNews
+        description: Create a frontend component to display the fetched news articles
+          in a table format
+      - task_id: '5'
+        name: TableStyle
+        description: Style the table to make it visually appealing and easy to read
+      - task_id: '6'
+        name: Paginate
+        description: Add pagination functionality to the table to handle a large number
+          of news articles
+      - task_id: '7'
+        name: SortTable
+        description: Implement sorting functionality for each column in the table
+          to allow users to sort the articles by title date or category
+      - task_id: '8'
+        name: Search News
+        description: Add a search bar to the table to allow users to search for specific
+          news articles by title or category
+      - task_id: '9'
+        name: ViewArticle
+        description: Implement a feature to allow users to click on a news article
+          in the table to view the full article details
+      - task_id: '10'
+        name: HandleNewsError
+        description: Add error handling to display a message if there are no news
+          articles available or if there is an error fetching the articles from the
+          database
+      - task_id: '11'
+        name: VerifyTable
+        description: Test the web app to ensure that the table displays the title
+          date and category of each news article correctly
+      - task_id: '12'
+        name: Optimize Loading
+        description: Optimize the performance of the web app to ensure fast loading
+          times especially when dealing with a large number of news articles
+      - task_id: '13'
+        name: Deploy
+        description: Deploy the web app to a production environment and ensure it
+          is accessible to users
+      - task_id: '14'
+        name: WebOps
+        description: Monitor the web app for any issues or errors and provide ongoing
+          support and maintenance
+    - story_id: 3
+      name: SortTable
+      description: As a user I want to be able to sort the table by date category
+        or title
+      tasks:
+      - task_id: '1'
+        name: UI Design
+        description: Design the user interface for the web app including a table to
+          display the news
+      - task_id: '2'
+        name: FetchNews
+        description: Implement the functionality to fetch news data from an external
+          API
+      - task_id: '3'
+        name: CreateDB
+        description: Create a database to store the news data
+      - task_id: '4'
+        name: Retrieve News
+        description: Develop the backend logic to retrieve news data from the database
+          and display it in the table
+      - task_id: '5'
+        name: SortTable
+        description: Implement the sorting functionality for the table allowing users
+          to sort by date category or title
+      - task_id: '6'
+        name: SortTest
+        description: Test the sorting functionality to ensure it works correctly
+      - task_id: '7'
+        name: HandleErrors
+        description: Add error handling to handle cases where the API or database
+          is unavailable
+      - task_id: '8'
+        name: Optimize
+        description: Optimize the performance of the web app to ensure fast loading
+          and sorting of the news table
+      - task_id: '9'
+        name: Deploy
+        description: Deploy the web app to a server or hosting platform
+      - task_id: '10'
+        name: Test
+        description: Conduct user testing to gather feedback and make any necessary
+          improvements to the web app
+    - story_id: 4
+      name: FilterByCategory
+      description: As a user I want to be able to filter the table by category to
+        only show news articles related to a specific cryptocurrency
+      tasks:
+      - task_id: '1'
+        name: UI Design
+        description: Design the user interface for the web app including a table to
+          display the news articles and a filter option for the category
+      - task_id: '2'
+        name: FetchNews
+        description: Implement the backend functionality to fetch news articles from
+          an API and store them in a database
+      - task_id: '3'
+        name: Schema
+        description: Create a database schema to store the news articles including
+          fields for title category and other relevant information
+      - task_id: '4'
+        name: Display News
+        description: Develop the frontend functionality to display the news articles
+          in a table format
+      - task_id: '5'
+        name: Filter
+        description: Implement the filter functionality to allow users to select a
+          specific cryptocurrency category and display only the related news articles
+      - task_id: '6'
+        name: Filter
+        description: Test the filter functionality to ensure that the table updates
+          correctly based on the selected category
+      - task_id: '7'
+        name: Handle No Articles
+        description: Add error handling to the filter functionality to display a message
+          if no news articles are found for the selected category
+      - task_id: '8'
+        name: Cache
+        description: Optimize the performance of the web app by implementing caching
+          mechanisms to reduce the number of API calls and database queries
+      - task_id: '9'
+        name: Test
+        description: Conduct user testing to gather feedback on the web apps usability
+          and make any necessary improvements
+      - task_id: '10'
+        name: Deploy
+        description: Deploy the web app to a production environment and ensure it
+          is accessible to users
+      - task_id: '11'
+        name: Performance
+        description: Monitor the web apps performance and address any issues or bugs
+          that arise
+      - task_id: '12'
+        name: Maintain
+        description: Provide ongoing support and maintenance for the web app including
+          regular updates and bug fixes as needed
+    - story_id: 5
+      name: ClickArticle
+      description: As a user I want to be able to click on a news article in the table
+        to view the full article
+      tasks:
+      - task_id: '1'
+        name: Layout Design
+        description: Design the layout of the web app including a table to display
+          the news articles
+      - task_id: '2'
+        name: CreateDB
+        description: Create a database to store the news articles
+      - task_id: '3'
+        name: Fetch News
+        description: Implement a backend API to fetch the news articles from the database
+      - task_id: '4'
+        name: NewsTable
+        description: Create a frontend component to display the news articles in a
+          table
+      - task_id: '5'
+        name: AddClickHandler
+        description: Add a click event handler to each news article in the table
+      - task_id: '6'
+        name: Fetch Article
+        description: Implement a backend API to fetch the full article based on the
+          clicked news article
+      - task_id: '7'
+        name: display article
+        description: Create a frontend component to display the full article
+      - task_id: '8'
+        name: Fetch Article
+        description: Link the click event handler to fetch and display the full article
+          when a news article is clicked
+      - task_id: '9'
+        name: NewsClick
+        description: Test the web app to ensure that clicking on a news article displays
+          the full article correctly
+      - task_id: '10'
+        name: Deploy
+        description: Deploy the web app to a server or hosting platform for public
+          access

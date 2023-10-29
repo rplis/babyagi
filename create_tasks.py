@@ -4,40 +4,45 @@ import os
 import yaml
 from dotenv import load_dotenv
 
-from classes import Epic, OpenAIAgent
+from classes import OpenAIAgent, Project
 from functions.functions import load_config, print_in_color
 
+# Load OPENAI_API_KEY from .env file
 load_dotenv()
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 
+# Load config.yaml file
 YAML_FILE_PATH = "config.yaml"
 config = load_config(YAML_FILE_PATH)
 
-LLM_MODEL = config["LLM_MODEL"].lower()
+OPENAI_MODEL = config["OPENAI_MODEL"].lower()
 OPENAI_TEMPERATURE = float(config["OPENAI_TEMPERATURE"])
 OPENAI_MAX_TOKENS = int(config["OPENAI_MAX_TOKENS"])
-EPIC_NAME = config["EPIC_NAME"]
+
+PROJECT_NAME = config["PROJECT_NAME"]
 
 openai_agent = OpenAIAgent(
-    model=LLM_MODEL,
+    model=OPENAI_MODEL,
     temperature=OPENAI_TEMPERATURE,
     max_tokens=OPENAI_MAX_TOKENS,
     api_key=OPENAI_API_KEY,
 )
 
-with open(f"{EPIC_NAME}.yaml", encoding="utf-8") as f:
-    objective = yaml.safe_load(f)
+with open("stories.yaml", encoding="utf-8") as f:
+    project = yaml.safe_load(f)
 
-epic = Epic(
-    name=objective["epic"]["name"],
-    description=objective["epic"]["description"],
+project = Project(
+    name=project["project"]["name"],
+    description=project["project"]["description"],
+    epics=project["project"]["epics"],
 )
+
 print_in_color("CONFIGURATION", "BLUE")
-print(f"LLM   : {LLM_MODEL}")
-print(f"EPIC  : {epic.name} - {epic.description}")
+print(f"OPENAI_MODEL   : {OPENAI_MODEL}")
+print(f"PROJECT  : {project.name} - {project.description}")
 
 print_in_color("PROCESSING", "MAGENTA")
 
-epic = openai_agent.create_tasks(epic, objective["epic"]["stories"])
+project = openai_agent.create_tasks(project)
 
-epic.save_to_yaml("epic.yaml")
+project.save_to_yaml("tasks.yaml")
